@@ -1,9 +1,13 @@
 import React from 'react'
 import { MainPage } from '../pages'
 
+import './app.scss'
+
 const App = () => {
   return (
-    <MainPage />
+    <div id={'app'}>
+      <MainPage />
+    </div>
   )
 }
 

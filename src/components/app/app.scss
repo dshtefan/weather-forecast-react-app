@@ -1,0 +1,16 @@
+body {
+  width: 100%;
+  background-image: url("./background.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  padding: 0;
+  margin: 0;
+}
+#app{
+  min-width: 740px;
+  min-height: 1080px;
+  display: grid;
+  grid-template: 125px 1fr 125px / 95px 1fr 95px;
+}

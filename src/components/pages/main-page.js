@@ -2,10 +2,11 @@ import React from 'react'
 import CityDefault from '../city-default'
 import CityList from '../city-list'
 
+import './main-page.scss'
+
 const MainPage = () => {
   return (
-    <div>
-      MAIN_PAGE
+    <div id={'main-page'}>
       <CityDefault />
       <CityList />
     </div>

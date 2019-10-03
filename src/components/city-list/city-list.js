@@ -1,9 +1,11 @@
 import React from 'react'
 import CityListItem from '../city-list-item'
 
+import './city-list.scss'
+
 const CityList = () => {
   return (
-    <div>
+    <div id="city-list">
       city-list
       <CityListItem />
       <CityListItem />

@@ -8,8 +8,9 @@ const reducer = (state = initialState, action) => {
       return {
         cities: action.payload
       }
+    default:
+      return state
   }
-  return state
 }
 
 export default reducer
