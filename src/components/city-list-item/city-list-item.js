@@ -1,9 +1,11 @@
 import React from 'react'
 
+import './city-list-item.scss'
+
 const CityListItem = () => {
   return (
-    <div>
-      city-list-item
+    <div id="city-list-item">
+      f
     </div>
   )
 }

@@ -2,12 +2,12 @@
   grid-area: 2 / 2 / span 1/ span 1;
   display: grid;
   @media(min-width: 1750px){
-    grid-template: 1fr / 520px 1fr 520px 520px;
+    grid-template: 1fr / 525px 1fr 525px 525px;
   }
   @media(min-width: 1240px) and (max-width: 1750px){
-    grid-template: 825px 800px / 520px 1fr 520px;
+    grid-template: 825px 800px / 525px 1fr 525px;
   }
   @media(min-width: 720px) and (max-width: 1240px){
-    grid-template: 825px repeat(4, 400px) / 520px;
+    grid-template: 825px repeat(4, 400px) / 525px;
   }
 }
