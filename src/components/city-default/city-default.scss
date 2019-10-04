@@ -1,0 +1,51 @@
+#icons-bar {
+  width: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  img {
+    width: 30px;
+    height: 30px;
+  }
+}
+#city-info {
+  height: 150px;
+  margin-top: 50px;
+  #city-info-day-time {
+    font-size: 30px;
+    height: 30px;
+    div{
+      display: inline-block;
+    }
+    #city-info-day {
+      margin-left: 10px;
+    }
+  }
+  #city-info-name {
+    height: 80px;
+    font-size: 62px;
+  }
+  #city-info-weather {
+    height: 40px;
+    font-size: 35px;
+  }
+}
+#cd-weather-icon {
+  width: 125px;
+  height: 125px;
+  margin-top: 35px;
+}
+#cd-temp {
+  height: 110px;
+  margin-top: 40px;
+  font-size: 100px;
+  color: #DE929C;
+}
+#сd-weather-values {
+  height: 240px;
+  margin-top: 45px;
+  div{
+    height: 60px;
+    font-size: 40px;
+  }
+}
