@@ -1,5 +1,66 @@
 #city-list-item {
   width: 520px;
   height: 350px;
-  background-color: rgba($color: #000000, $alpha: 0.45);
+  background-color: rgba($color: #000000, $alpha: 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+}
+#tab-info{
+  height: 30%;
+  width: 98%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#item-info{
+  height: 70%;
+  width: 100%;
+}
+#tab-info-city{
+  height: 100%;
+  flex-grow: 60;
+  display: flex;
+  align-items: center;
+  font-size: 32px;
+  font-weight: bold;
+}
+#tab-info-city-text{
+}
+#tab-info-icon-svg{
+}
+#tab-info-icon{
+  height: 100%;
+  flex-grow: 20;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#tab-info-delete{
+  height: 100%;
+  flex-grow: 13;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#item-info{
+  width: 98%;
+  display: flex;
+}
+#item-info-left{
+  width: 30%;
+  height: 100%;
+}
+#item-info-right{
+  width: 70%;
+  height: 100%;
+  .weather-info-line{
+    text-align: end;
+  }
+}
+.weather-info-line{
+  height: 60px;
+  font-size: 25px;
+  color: rgba($color: #FFF4F4, $alpha: 0.75);
 }
