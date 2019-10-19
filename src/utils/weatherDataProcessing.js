@@ -1,28 +1,33 @@
 export const weatherDataProcessing = weather => {
-  let city = weather.name, 
-      main = weather.weather[0].main, 
-      temp = (weather.main.temp - 273.15).toFixed(0), 
-      wind = weather.wind.speed, 
-      humidity = weather.main.humidity, 
-      pressure = weather.main.pressure, 
-      timezone = weather.timezone / 3600,
-      icon = weather.weather[0].icon.substr(0, 2),
-      time = new Date(weather.dt * 1000),
-      coord = weather.coord;
-  const getDate = d => 
+  let {
+    name,
+    dt,
+    main: { temp, humidity, pressure },
+    weather: { 0: { main, icon } },
+    wind: { speed },
+    timezone,
+    coordinates
+  } = weather;
+
+  const getTime= d => 
     `${d.getUTCHours() + timezone >= 24 ? d.getUTCHours() + timezone - 24 : d.getUTCHours() + timezone}` +
     `:${d.getUTCMinutes() + timezone}`;
+
+  temp = (temp - 273.15).toFixed(0);
+  timezone = timezone / 3600;
+  icon = icon.substr(0, 2);
+  dt = new Date(dt * 1000);
   
   return {
-    city: city,
+    city: name,
     temp: temp,
-    time: getDate(time),
+    time: getTime(dt),
     icon: icon,
-    day: time.getUTCDay() + timezone,
+    day: dt.getUTCDay() + timezone,
     main: main,
     pressure: pressure,
     humidity: humidity,
-    wind: wind,
-    coord: coord
+    wind: speed,
+    coordinates: coordinates
   }
 };
