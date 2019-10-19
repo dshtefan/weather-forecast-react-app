@@ -7,38 +7,46 @@ import './city-default.scss';
 import navIcon from './svg/navigation.svg';
 import nonFavIcon from './svg/favorite.svg';
 import favIcon from './svg/fillFavorite.svg';
+import Spinner from '../spinner';
 
 const CityDefault = () => {
   const [data, setData] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [city] = useState('London');
+  const [apiKey] = useState('3dd82107b17241c740a2a087d34da02d');
   let isFav = true;
   
   useEffect(() => {
-    getWeatherByCityName('London', 'd3fb6b0837add2d07e9d69ef97b85afd')
-      .then((res) => setData(weatherDataProcessing(res.data)))
-  });
+    setLoading(true);
+    getWeatherByCityName(city, apiKey)
+      .then((res) => {
+        setData(weatherDataProcessing(res.data));
+        setLoading(false);
+      });
+  }, [city, apiKey]);
 
   return (
     <div>
-      <div id="icons-bar">
-        <img id="navIcon" src={navIcon} alt=""/>
-        <img id="favIcon" src={isFav ? favIcon : nonFavIcon} alt=""/>
-      </div>
-      <div id="city-info">
-        <div id="city-info-day-time">
-          <div id="city-info-time">18:00</div>
-          <div id="city-info-day">Tuesday</div>
+      {loading? <Spinner /> :
+        <div>
+          <div id="icons-bar">
+            <img id="navIcon" src={navIcon} alt=""/>
+            <img id="favIcon" src={isFav ? favIcon : nonFavIcon} alt=""/>
+          </div>
+          <div id="city-info">
+            <div id="city-info-name">{data.city}</div>
+            <div id="city-info-weather">{data.main}</div>
+          </div>
+          <div id="cd-weather-icon"></div>
+          <div id="cd-temp">{`${data.temp}°`}</div>
+          <div id="сd-weather-values">
+            <div>Pressure: <span id="cd-pressure">{data.pressure} pHa</span></div>
+            <div>Wind: <span id="cd-wind">{data.wind} m/s</span></div>
+            <div>Humidity: <span id="cd-himidity">{data.humidity}%</span></div>
+            <div>Coord: <span id="cd-coord">{`[${data.lat}: ${data.lon}]`}</span></div>
+          </div>
         </div>
-        <div id="city-info-name">Barcelona</div>
-        <div id="city-info-weather">Sun</div>
-      </div>
-      <div id="cd-weather-icon"></div>
-      <div id="cd-temp">24°</div>
-      <div id="сd-weather-values">
-        <div>Pressure:<span id="cd-pressure"></span></div>
-        <div>Wind<span id="cd-wind"></span></div>
-        <div>Humidity:<span id="cd-himidity"></span></div>
-        <div>Coord: <span id="cd-coord"></span></div>
-      </div>
+      }
     </div>
   )
 };
