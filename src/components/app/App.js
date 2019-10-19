@@ -1,7 +1,7 @@
-import React from 'react'
-import { MainPage } from '../pages'
+import React from 'react';
+import { MainPage } from '../pages';
 
-import './app.scss'
+import './app.scss';
 
 const App = () => {
   return (
@@ -9,6 +9,6 @@ const App = () => {
       <MainPage />
     </div>
   )
-}
+};
 
-export default App
+export default App;

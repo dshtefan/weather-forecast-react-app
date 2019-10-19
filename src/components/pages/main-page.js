@@ -1,8 +1,8 @@
-import React from 'react'
-import CityDefault from '../city-default'
-import CityList from '../city-list'
+import React from 'react';
+import CityDefault from '../city-default';
+import CityList from '../city-list';
 
-import './main-page.scss'
+import './main-page.scss';
 
 const MainPage = () => {
   return (
@@ -11,6 +11,6 @@ const MainPage = () => {
       <CityList />
     </div>
   )
-}
+};
 
-export default MainPage
+export default MainPage;

@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 
 const getWeatherByCoord = (lat, lon, APIkey) =>
   axios.get(`https://api.openweathermap.org/data/2.5/weather?`, {
@@ -7,7 +7,7 @@ const getWeatherByCoord = (lat, lon, APIkey) =>
       lat: lat,
       lon: lon
     }
-  })
+  });
 
 const getWeatherByCityName = (cityName, APIkey) =>
   axios.get(`https://api.openweathermap.org/data/2.5/weather?`, {
@@ -15,10 +15,10 @@ const getWeatherByCityName = (cityName, APIkey) =>
       q: cityName,
       appid: APIkey
     }
-  })
+  });
 
 
 export {
   getWeatherByCoord,
   getWeatherByCityName
-}
+};

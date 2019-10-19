@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-import './city-list-item.scss'
-import weatherIcon from './svg/weather-icon.svg'
-import deleteIcon from './svg/delete.svg'
+import './city-list-item.scss';
+import weatherIcon from './svg/weather-icon.svg';
+import deleteIcon from './svg/delete.svg';
 
 const CityListItem = () => {
   return (
@@ -42,4 +42,4 @@ const CityListItem = () => {
   )
 };
 
-export default CityListItem
+export default CityListItem;

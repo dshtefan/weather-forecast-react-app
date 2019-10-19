@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import './input-box.scss'
+import './input-box.scss';
 
 const InputBox = () => {
   return (
@@ -8,11 +8,11 @@ const InputBox = () => {
       <div id="input-box">
         <form id="input-form" action="#">
           <input id="input-field"></input>
-          <button id="search-button"></button>
+          <button id="search-button">Search</button>
         </form>
       </div>
     </div>
   )
-}
+};
 
-export default InputBox
+export default InputBox;

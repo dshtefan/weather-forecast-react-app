@@ -1,29 +1,27 @@
-import React, { useState, useEffect } from 'react'
-import { getWeatherByCityName } from '../../utils/getWeather'
-import { weatherDataProcessing } from '../../utils/weatherDataProcessing'
+import React, { useState, useEffect } from 'react';
+import { getWeatherByCityName } from '../../utils/getWeather';
+import { weatherDataProcessing } from '../../utils/weatherDataProcessing';
 
-import './city-default.scss'
+import './city-default.scss';
 
-import navIcon from './svg/navigation.svg'
-import nonFavIcon from './svg/favorite.svg'
-import favIcon from './svg/fillFavorite.svg'
+import navIcon from './svg/navigation.svg';
+import nonFavIcon from './svg/favorite.svg';
+import favIcon from './svg/fillFavorite.svg';
 
 const CityDefault = () => {
-  const [data, setData] = useState({})
-  let isFav = true
+  const [data, setData] = useState({});
+  let isFav = true;
   
   useEffect(() => {
     getWeatherByCityName('London', 'd3fb6b0837add2d07e9d69ef97b85afd')
-      .then((res) => {
-        setData(weatherDataProcessing(res.data))
-      })
-  })
+      .then((res) => setData(weatherDataProcessing(res.data)))
+  });
 
   return (
     <div>
       <div id="icons-bar">
-        <img id="navIcon" src={navIcon}/>
-        <img id="favIcon" src={isFav ? favIcon : nonFavIcon}/>
+        <img id="navIcon" src={navIcon} alt=""/>
+        <img id="favIcon" src={isFav ? favIcon : nonFavIcon} alt=""/>
       </div>
       <div id="city-info">
         <div id="city-info-day-time">
@@ -43,6 +41,6 @@ const CityDefault = () => {
       </div>
     </div>
   )
-}
+};
 
-export default CityDefault
+export default CityDefault;

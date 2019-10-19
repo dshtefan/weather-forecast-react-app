@@ -8,10 +8,10 @@ export const weatherDataProcessing = weather => {
       timezone = weather.timezone / 3600,
       icon = weather.weather[0].icon.substr(0, 2),
       time = new Date(weather.dt * 1000),
-      coord = weather.coord
+      coord = weather.coord;
   const getDate = d => 
     `${d.getUTCHours() + timezone >= 24 ? d.getUTCHours() + timezone - 24 : d.getUTCHours() + timezone}` +
-    `:${d.getUTCMinutes() + timezone}`
+    `:${d.getUTCMinutes() + timezone}`;
   
   return {
     city: city,
@@ -25,4 +25,4 @@ export const weatherDataProcessing = weather => {
     wind: wind,
     coord: coord
   }
-}
+};

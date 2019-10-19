@@ -1,3 +1,3 @@
 import InputBox from "./input-box";
 
-export default InputBox
+export default InputBox;

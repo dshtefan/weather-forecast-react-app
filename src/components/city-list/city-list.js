@@ -1,8 +1,8 @@
-import React from 'react'
-import CityListItem from '../city-list-item'
-import InputBox from '../input-box'
+import React from 'react';
+import CityListItem from '../city-list-item';
+import InputBox from '../input-box';
 
-import './city-list.scss'
+import './city-list.scss';
 
 const CityList = () => {
   return (
@@ -14,6 +14,6 @@ const CityList = () => {
       <CityListItem />
     </div>
   )
-}
+};
 
-export default CityList
+export default CityList;
