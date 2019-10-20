@@ -26,7 +26,8 @@ const reducer = (state = initialState, action) => {
         inputField: action.text
       };
     case 'FETCH_CITY_SUCCESS':{
-      const cities = [...state.cities].unshift(action.city);
+      let cities = [...state.cities];
+      cities.unshift(action.city);
       return {
         ...state,
         cities,
