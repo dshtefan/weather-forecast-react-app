@@ -3,9 +3,20 @@ const apiLoaded = (key) => ({
   payload: key
 });
 
-const cityDataLoaded = (cityData) => ({
-  type: 'ADD_CITY',
-  newCity: cityData
+const updateInputField = (text) => ({
+  type: 'UPDATE_INPUT_FIELD',
+  text
+});
+
+const cityLoaded = (city) => ({
+  type: 'FETCH_CITY_SUCCESS',
+  city
+});
+
+const cityUpdate = (i, city) => ({
+  type: 'UPDATE_CITY_SUCCESS',
+  city,
+  i
 });
 
 const locRequested = () => ({
@@ -28,8 +39,10 @@ const locError = () => ({
 
 export {
   apiLoaded,
-  cityDataLoaded,
+  cityLoaded,
   locError,
   locLoaded,
-  locRequested
+  locRequested,
+  updateInputField,
+  cityUpdate
 };

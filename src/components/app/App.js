@@ -5,7 +5,7 @@ import { apiLoaded } from '../../actions'
 
 import './app.scss';
 
-const App = ({ apiKey, frontCity, apiLoaded }) => {
+const App = ({ apiKey, frontCity }) => {
   useEffect(() => {
     console.log(apiKey);
     console.log(frontCity);
@@ -15,7 +15,6 @@ const App = ({ apiKey, frontCity, apiLoaded }) => {
   }, [apiKey]);
   return (
     <div id={'app'}>
-      <div>{apiKey}</div>
       <MainPage />
     </div>
   )

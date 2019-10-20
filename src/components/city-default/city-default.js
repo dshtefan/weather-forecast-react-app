@@ -16,7 +16,7 @@ const CityDefault = () => {
   const [city] = useState('London');
   const [apiKey] = useState('3dd82107b17241c740a2a087d34da02d');
   const [coordinates, setCoordinates] = useState(null);
-  let isFav = true;
+  let isFav = false;
 
   const geoInfoDestructuring = (pos) =>{
     setCoordinates([pos.coords.latitude, pos.coords.longitude]);
@@ -51,8 +51,9 @@ const CityDefault = () => {
 
   return (
     <div id="city-default">
-      {loading? <Spinner /> :
-        <div>
+      {loading
+        ? <Spinner />
+        : <div>
           <div id="icons-bar">
             <img id="navIcon" src={navIcon} alt=""/>
             <img id="favIcon" src={isFav ? favIcon : nonFavIcon} alt=""/>

@@ -1,5 +1,6 @@
 const initialState = {
-  apiKey: '',
+  apiKey: '3dd82107b17241c740a2a087d34da02d',
+  inputField: '',
   cities: [],
   frontCity: 0,
   loadingCoords: true,
@@ -19,11 +20,24 @@ const reducer = (state = initialState, action) => {
         ...state,
         apiKey: action.payload
       };
-    case 'ADD_CITY':
+    case 'UPDATE_INPUT_FIELD':
       return {
         ...state,
-        cities: [...state.cities, action.newCity]
+        inputField: action.text
       };
+    case 'FETCH_CITY_SUCCESS':
+      return {
+        ...state,
+        cities: [...state.cities, ...action.city]
+      };
+    case 'UPDATE_CITY_SUCCESS': {
+      const cities = [...state.cities];
+      cities[action.i] = action.city;
+      return {
+        ...state,
+        cities
+      }
+    }
     case 'FETCH_GEOLOCATION_REQUEST':
       return {
         ...state,
