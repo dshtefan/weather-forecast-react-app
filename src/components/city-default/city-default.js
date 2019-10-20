@@ -50,7 +50,7 @@ const CityDefault = () => {
   }, [city, apiKey]);
 
   return (
-    <div>
+    <div id="city-default">
       {loading? <Spinner /> :
         <div>
           <div id="icons-bar">
@@ -61,7 +61,9 @@ const CityDefault = () => {
             <div id="city-info-name">{data.city}</div>
             <div id="city-info-weather">{data.main}</div>
           </div>
-          <div id="cd-weather-icon"></div>
+          <div id="cd-weather-icon">
+            <img src={`/icons/${data.icon}.svg`} alt=""/>
+          </div>
           <div id="cd-temp">{`${data.temp}°`}</div>
           <div id="сd-weather-values">
             <div>Pressure: <span id="cd-pressure">{data.pressure} pHa</span></div>
