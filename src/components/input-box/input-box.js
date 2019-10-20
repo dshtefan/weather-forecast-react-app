@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import './input-box.scss';
+
 import { updateInputField } from "../../actions";
 
 const InputBox = ({ inputField, updateInputField }) => {

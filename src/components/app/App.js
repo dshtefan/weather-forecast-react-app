@@ -1,18 +1,24 @@
 import React, {useEffect} from 'react';
-import { MainPage } from '../pages';
 import { connect } from 'react-redux';
-import { apiLoaded } from '../../actions'
 
 import './app.scss';
 
-const App = ({ apiKey, frontCity }) => {
+import { MainPage } from '../pages';
+import { apiLoaded } from '../../actions';
+import {getWeatherByCityName} from "../../utils/getWeather";
+import {weatherDataProcessing} from "../../utils/weatherDataProcessing";
+
+const App = ({ apiKey, frontCity, inputField }) => {
+
   useEffect(() => {
-    console.log(apiKey);
-    console.log(frontCity);
-    apiLoaded('3dd82107b17241c740a2a087d34da02d');
-    console.log(frontCity);
-    console.log(apiKey);
-  }, [apiKey]);
+    if(inputField){
+      getWeatherByCityName(inputField, apiKey)
+        .then((res) => {
+          weatherDataProcessing(res.data);
+        });
+    }
+  }, [inputField]);
+
   return (
     <div id={'app'}>
       <MainPage />
@@ -20,9 +26,10 @@ const App = ({ apiKey, frontCity }) => {
   )
 };
 
-const mapStateToProps = ({ apiKey, frontCity }) => ({
+const mapStateToProps = ({ apiKey, frontCity, inputField }) => ({
   apiKey,
-  frontCity
+  frontCity,
+  inputField
 });
 
 const mapDispatchToProps = {

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './city-list-item.scss';
+
 import weatherIcon from './svg/weather-icon.svg';
 import deleteIcon from './svg/delete.svg';
 

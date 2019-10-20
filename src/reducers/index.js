@@ -1,6 +1,6 @@
 const initialState = {
   apiKey: '3dd82107b17241c740a2a087d34da02d',
-  inputField: '',
+  inputField: null,
   cities: [],
   frontCity: 0,
   loadingCoords: true,
