@@ -25,11 +25,14 @@ const reducer = (state = initialState, action) => {
         ...state,
         inputField: action.text
       };
-    case 'FETCH_CITY_SUCCESS':
+    case 'FETCH_CITY_SUCCESS':{
+      const cities = [...state.cities].unshift(action.city);
       return {
         ...state,
-        cities: [...state.cities, ...action.city]
-      };
+        cities,
+        frontCity: 0
+      }
+    }
     case 'UPDATE_CITY_SUCCESS': {
       const cities = [...state.cities];
       cities[action.i] = action.city;
