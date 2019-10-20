@@ -1,19 +1,25 @@
 import React from 'react';
-import CityListItem from '../city-list-item';
-import InputBox from '../input-box';
+import { connect } from 'react-redux';
 
 import './city-list.scss';
 
-const CityList = () => {
+import CityListItem from '../city-list-item';
+import InputBox from '../input-box';
+
+const CityList = ({ cities }) => {
   return (
     <div id="city-list">
       <InputBox />
-      <CityListItem />
-      <CityListItem />
-      <CityListItem />
-      <CityListItem />
+      {
+        cities.map((el) => (<CityListItem city={el}/>))
+      }
     </div>
   )
 };
 
-export default CityList;
+const mapStateToProps = ({ frontCity, cities }) => ({
+  cities,
+  frontCity
+});
+
+export default connect(mapStateToProps)(CityList);
