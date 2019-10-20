@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { getWeatherByCityName } from '../../utils/getWeather';
+import { getWeatherByCityName, getWeatherByCoord } from '../../utils/getWeather';
 import { weatherDataProcessing } from '../../utils/weatherDataProcessing';
+import { getGeoPosition } from '../../utils/getGeoPosition';
 
 import './city-default.scss';
 
@@ -14,10 +15,33 @@ const CityDefault = () => {
   const [loading, setLoading] = useState(false);
   const [city] = useState('London');
   const [apiKey] = useState('3dd82107b17241c740a2a087d34da02d');
+  const [coordinates, setCoordinates] = useState(null);
   let isFav = true;
-  
+
+  const geoInfoDestructuring = (pos) =>{
+    setCoordinates([pos.coords.latitude, pos.coords.longitude]);
+    console.log([pos.coords.latitude, pos.coords.longitude]);
+  };
+
+  useEffect(() => {
+    getGeoPosition(geoInfoDestructuring);
+  }, [data]);
+
+  useEffect(() => {
+    if(coordinates) {
+      console.log(2);
+      setLoading(true);
+      getWeatherByCoord(coordinates[0], coordinates[1], apiKey)
+        .then((res) => {
+          setData(weatherDataProcessing(res.data));
+          setLoading(false);
+        });
+    }
+  }, [coordinates, apiKey]);
+
   useEffect(() => {
     setLoading(true);
+    console.log(1);
     getWeatherByCityName(city, apiKey)
       .then((res) => {
         setData(weatherDataProcessing(res.data));

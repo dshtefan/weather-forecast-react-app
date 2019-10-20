@@ -1,12 +1,22 @@
 const initialState = {
-  cities: []
+  apiKey: '',
+  cities: [],
+  frontCity: 0,
+  loadingCoords: true,
+  error: null
 };
 
 const reducer = (state = initialState, action) => {
   switch(action.type){
-    case 'CITIES_LOADED':
+    case 'API_LOADED':
       return {
-        cities: action.payload
+        ...state,
+        apiKey: action.payload
+      };
+    case 'ADD_CITY':
+      return {
+        ...state,
+        cities: [...state.cities, action.newCity]
       };
     default:
       return state

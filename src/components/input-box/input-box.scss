@@ -5,9 +5,8 @@
 #input-box {
   height: 45px;
   width: 520px;
-  background: linear-gradient(0deg, #DE929C 0%, rgba(222, 146, 156, 0) 100%);
-  border: black;
-  border-width: 1px;
+  background: linear-gradient(0deg, #92deb5 0%, rgba(222, 146, 156, 0) 100%);
+  border: 1px black;
 }
 #input-form {
   display: flex;
@@ -20,7 +19,7 @@
   border-color: transparent;
   flex-grow: 1;
   font-size: 32px;
-  color: #330000;
+  color: #243a4e;
 }
 *:focus
 {
