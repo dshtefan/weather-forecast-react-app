@@ -29,7 +29,7 @@ const CityListItem = ({ city, i, cityDelete }) => {
             </div>
             <div id="tab-info-icon">
               <div id="tab-info-icon-svg">
-                {!city.error ? <img src={`/icons/${city.icon}.svg`} alt=""/> : ''}
+                {!city.error ? <img src={`https://dshtefan.github.io/weather-search-2/icons/${city.icon}.svg`} alt=""/> : ''}
               </div>
             </div>
             <div id="tab-info-delete">

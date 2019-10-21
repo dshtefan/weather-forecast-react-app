@@ -1,20 +1,12 @@
-import React, { useEffect } from 'react';
+import React  from 'react';
 import { connect } from 'react-redux';
 import './city-default.scss';
 import updIcon from './svg/update.svg';
 import Spinner from '../spinner';
-import { locRequested, updateLoadingStatus } from "../../actions";
+import { locRequested } from "../../actions";
 
-const CityDefault = ({ city, loading, updateLoadingStatus, locRequested }) => {
-
-  const updCityInfo = () => {
-    locRequested();
-  };
-
-  useEffect(() => {
-    if(city && JSON.stringify(city) !== '{}'){
-      updateLoadingStatus(false);}
-  }, [city, updateLoadingStatus]);
+const CityDefault = ({ city, loading, locRequested }) => {
+  const updCityInfo = () => locRequested();
 
   return (
     <div id="city-default">
@@ -29,7 +21,7 @@ const CityDefault = ({ city, loading, updateLoadingStatus, locRequested }) => {
             <div id="city-info-weather">{city.main}</div>
           </div>
           <div id="cd-weather-icon">
-            <img src={`/icons/${city.icon}.svg`} alt=""/>
+            <img src={`https://dshtefan.github.io/weather-search-2/icons/${city.icon}.svg`} alt=""/>
           </div>
           <div id="cd-temp">{`${city.temp}°`}</div>
           <div id="сd-weather-values">
@@ -49,9 +41,4 @@ const mapStateToProps = ({ loading, cityByCoords }) => ({
   loading
 });
 
-const mapDispatchToProps = {
-  updateLoadingStatus,
-  locRequested
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(CityDefault);
+export default connect(mapStateToProps, { locRequested })(CityDefault);

@@ -23,7 +23,7 @@ const reducer = (state = initialState, action) => {
     }
     case 'FETCH_CITY_REQUEST':{
       const cities = [...state.cities];
-      cities.unshift({});
+      cities.push({});
       return {
         ...state,
         cities
@@ -31,7 +31,9 @@ const reducer = (state = initialState, action) => {
     }
     case 'FETCH_CITY_SUCCESS':{
       const cities = [...state.cities];
-      cities[0] = action.city;
+      const i = cities.filter((item) =>
+        (JSON.stringify(item) !== JSON.stringify({}))).length;
+      cities[i] = action.city;
       return {
         ...state,
         cities

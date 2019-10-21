@@ -2,14 +2,22 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import './app.scss';
 import { MainPage } from '../pages';
-import { cityByCoordsLoaded, cityLoaded, cityRequest, locError, locLoaded, locRequested } from '../../actions';
 import { getWeatherByCityName, getWeatherByCoord } from "../../utils/getWeather";
 import { dataDestructuring } from "../../utils/weatherDataProcessing";
 import { getGeoPosition } from "../../utils/getGeoPosition";
+import {
+  cityByCoordsLoaded,
+  cityLoaded,
+  cityRequest,
+  locError,
+  locLoaded,
+  locRequested,
+  updateLoadingStatus
+} from '../../actions';
 
 const App = (props) => {
-  const { cityLoaded, cityRequest, locLoaded, locError, cityByCoordsLoaded, state} = props;
-  const { apiKey, cityDefault, isGeoPosAvailable, inputField } = state;
+  const { cityLoaded, cityRequest, locLoaded, locError, cityByCoordsLoaded, updateLoadingStatus, state} = props;
+  const { apiKey, cityDefault, isGeoPosAvailable, inputField, cityByCoords } = state;
 
   const successGeoLocCallback = (pos) => {
     const lat = pos.coords.latitude;
@@ -48,6 +56,12 @@ const App = (props) => {
   });
 
   useEffect(() => {
+    if(cityByCoords && JSON.stringify(cityByCoords) !== '{}'){
+      updateLoadingStatus(false);}
+  }, [cityByCoords, updateLoadingStatus]);
+
+
+  useEffect(() => {
     localStorage.setItem('state', JSON.stringify({...state, inputField: null}));
   }, [state]);
 
@@ -66,7 +80,8 @@ const mapDispatchToProps = {
   locError,
   locLoaded,
   locRequested,
-  cityByCoordsLoaded
+  cityByCoordsLoaded,
+  updateLoadingStatus
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
