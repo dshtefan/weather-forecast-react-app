@@ -2,15 +2,10 @@ const initialState = {
   apiKey: '3dd82107b17241c740a2a087d34da02d',
   inputField: null,
   cities: [],
-  frontCity: 0,
   loading: true,
   isGeoPosAvailable: null,
   cityDefault: 'London',
-  coords: {
-    lat: null,
-    lon: null
-  },
-  error: null
+  cityByCoords: {}
 };
 
 const reducer = (state = initialState, action) => {
@@ -35,8 +30,7 @@ const reducer = (state = initialState, action) => {
       cities.splice(action.index, 1);
       return {
         ...state,
-        cities,
-        loading: true
+        cities
       };
     }
     case 'FETCH_CITY_REQUEST':{
@@ -44,9 +38,7 @@ const reducer = (state = initialState, action) => {
       cities.unshift({});
       return {
         ...state,
-        cities,
-        loading: true,
-        frontCity: 0
+        cities
       }
     }
     case 'FETCH_CITY_SUCCESS':{
@@ -54,8 +46,7 @@ const reducer = (state = initialState, action) => {
       cities[0] = action.city;
       return {
         ...state,
-        cities,
-        frontCity: 0
+        cities
       }
     }
     case 'UPDATE_CITY_SUCCESS': {
@@ -69,21 +60,25 @@ const reducer = (state = initialState, action) => {
     case 'FETCH_GEOLOCATION_REQUEST':
       return {
         ...state,
-        loading: action.loadingCoords,
-        isGeoPosAvailable: action.isGeoPosAvailable
+        isGeoPosAvailable: action.isGeoPosAvailable,
+        loading: true
       };
     case 'FETCH_GEOLOCATION_SUCCESS':
       return {
         ...state,
-        loading: action.loadingCoords,
         isGeoPosAvailable: action.isGeoPosAvailable
       };
     case 'FETCH_GEOLOCATION_FAILURE':
       return {
         ...state,
-        loading: action.loadingCoords,
         isGeoPosAvailable: action.isGeoPosAvailable
       };
+    case 'FETCH_CITY_BY_COORDS_SUCCESS':{
+      return {
+        ...state,
+        cityByCoords: action.city
+      }
+    }
     default:
       return state
   }

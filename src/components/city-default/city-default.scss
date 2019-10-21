@@ -1,8 +1,9 @@
 #icons-bar {
-  width: 150px;
+  width: 30px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  cursor: pointer;
   img {
     width: 30px;
     height: 30px;
@@ -38,4 +39,7 @@
     height: 60px;
     font-size: 40px;
   }
+}
+.city-default{
+  height: 100%;
 }

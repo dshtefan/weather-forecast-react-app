@@ -3,14 +3,15 @@ import { connect } from 'react-redux'
 
 import './city-default.scss';
 
-import navIcon from './svg/navigation.svg';
-import nonFavIcon from './svg/favorite.svg';
-import favIcon from './svg/fillFavorite.svg';
+import updIcon from './svg/update.svg';
 import Spinner from '../spinner';
-import {updateLoadingStatus} from "../../actions";
+import {locRequested, updateLoadingStatus} from "../../actions";
 
-const CityDefault = ({ city, loading, updateLoadingStatus }) => {
-  let isFav = false;
+const CityDefault = ({ city, loading, updateLoadingStatus, locRequested }) => {
+
+  const updCityInfo = () => {
+    locRequested();
+  };
 
   useEffect(() => {
     if(city && JSON.stringify(city) !== '{}'){
@@ -23,8 +24,7 @@ const CityDefault = ({ city, loading, updateLoadingStatus }) => {
         ? <Spinner />
         : <div>
           <div id="icons-bar">
-            <img id="navIcon" src={navIcon} alt=""/>
-            <img id="favIcon" src={isFav ? favIcon : nonFavIcon} alt=""/>
+            <img id="navIcon" src={updIcon} alt="" onClick={updCityInfo}/>
           </div>
           <div id="city-info">
             <div id="city-info-name">{city.city}</div>
@@ -46,13 +46,14 @@ const CityDefault = ({ city, loading, updateLoadingStatus }) => {
   )
 };
 
-const mapStateToProps = ({ frontCity, cities, loading }) => ({
-  city: cities[frontCity],
+const mapStateToProps = ({ loading, cityByCoords }) => ({
+  city: cityByCoords,
   loading
 });
 
 const mapDispatchToProps = {
-  updateLoadingStatus
+  updateLoadingStatus,
+  locRequested
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CityDefault);
