@@ -42,4 +42,4 @@ const mapDispatchToProps = {
   updateInputField
 };
 
-export default connect(mapDispatchToProps)(InputBox);
+export default connect(null, mapDispatchToProps)(InputBox);

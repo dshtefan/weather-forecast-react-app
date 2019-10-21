@@ -32,7 +32,7 @@ const CityListItem = ({ city, i, cityDelete }) => {
             </div>
             <div id="tab-info-icon">
               <div id="tab-info-icon-svg">
-                <img src={weatherIcon} alt=""/>
+                {!city.error ? <img src={weatherIcon} alt=""/> : ''}
               </div>
             </div>
             <div id="tab-info-delete">
@@ -42,7 +42,7 @@ const CityListItem = ({ city, i, cityDelete }) => {
             </div>
           </div>
           {city.error
-            ? <div>{city.error}</div>
+            ? <div className="error-message">{city.error}</div>
             :<div id="item-info">
               <div id="item-info-left">
                 <div className="weather-info-line">Pressure:</div>
