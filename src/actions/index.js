@@ -19,6 +19,10 @@ const cityDelete = (index) => ({
   index
 });
 
+const cityRequest = () => ({
+  type: 'FETCH_CITY_REQUEST'
+});
+
 const cityLoaded = (city) => ({
   type: 'FETCH_CITY_SUCCESS',
   city
@@ -50,6 +54,7 @@ const locError = () => ({
 
 export {
   apiLoaded,
+  cityRequest,
   cityLoaded,
   locError,
   locLoaded,

@@ -39,9 +39,19 @@ const reducer = (state = initialState, action) => {
         loading: true
       };
     }
+    case 'FETCH_CITY_REQUEST':{
+      const cities = [...state.cities];
+      cities.unshift({});
+      return {
+        ...state,
+        cities,
+        loading: true,
+        frontCity: 0
+      }
+    }
     case 'FETCH_CITY_SUCCESS':{
       const cities = [...state.cities];
-      cities.unshift(action.city);
+      cities[0] = action.city;
       return {
         ...state,
         cities,

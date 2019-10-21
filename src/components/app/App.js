@@ -4,20 +4,21 @@ import { connect } from 'react-redux';
 import './app.scss';
 
 import { MainPage } from '../pages';
-import { cityLoaded } from '../../actions';
+import {cityLoaded, cityRequest} from '../../actions';
 import {getWeatherByCityName} from "../../utils/getWeather";
 import {weatherDataProcessing} from "../../utils/weatherDataProcessing";
 
-const App = ({ apiKey, inputField, cityLoaded }) => {
+const App = ({ apiKey, inputField, cityLoaded, cityRequest }) => {
 
   useEffect(() => {
     if(inputField){
+      cityRequest();
       getWeatherByCityName(inputField, apiKey)
         .then((res) => {
           cityLoaded(weatherDataProcessing(res.data));
         });
     }
-  }, [inputField, apiKey, cityLoaded]);
+  }, [inputField, apiKey, cityLoaded, cityRequest]);
 
   return (
     <div id={'app'}>
@@ -33,7 +34,8 @@ const mapStateToProps = ({ apiKey, frontCity, inputField }) => ({
 });
 
 const mapDispatchToProps = {
-  cityLoaded
+  cityLoaded,
+  cityRequest
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -13,8 +13,8 @@ const CityDefault = ({ city, loading, updateLoadingStatus }) => {
   let isFav = false;
 
   useEffect(() => {
-    if(city)
-      updateLoadingStatus(false);
+    if(city && JSON.stringify(city) !== '{}'){
+      updateLoadingStatus(false);}
   }, [city, updateLoadingStatus]);
 
   return (
