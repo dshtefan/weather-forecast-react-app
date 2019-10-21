@@ -1,13 +1,16 @@
 import React from 'react';
+import {connect} from 'react-redux'
 
 import './city-list-item.scss';
 
 import weatherIcon from './svg/weather-icon.svg';
 import deleteIcon from './svg/delete.svg';
+import {cityDelete} from "../../actions";
 
-const CityListItem = ({ city }) => {
+const CityListItem = ({ city, i, cityDelete }) => {
+  const deleteCity = () => cityDelete(i);
   return (
-    <div id="city-list-item">
+    <div id={"cli"+i} className="city-list-item">
       <div id="tab-info">
         <div id="tab-info-city">
           <div id="tab-info-city-text">
@@ -21,7 +24,7 @@ const CityListItem = ({ city }) => {
         </div>
         <div id="tab-info-delete">
           <div id="tab-info-delete-svg">
-            <img src={deleteIcon} alt=""/>
+            <img src={deleteIcon} alt="" onClick={deleteCity}/>
           </div>
         </div>
       </div>
@@ -43,4 +46,8 @@ const CityListItem = ({ city }) => {
   )
 };
 
-export default CityListItem;
+const mapDispatchToProps = {
+  cityDelete
+};
+
+export default connect(null, mapDispatchToProps)(CityListItem);

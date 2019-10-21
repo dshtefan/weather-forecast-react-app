@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
 
 import './city-default.scss';
@@ -7,15 +7,15 @@ import navIcon from './svg/navigation.svg';
 import nonFavIcon from './svg/favorite.svg';
 import favIcon from './svg/fillFavorite.svg';
 import Spinner from '../spinner';
+import {updateLoadingStatus} from "../../actions";
 
-const CityDefault = ({ city }) => {
-  const [loading, setLoading] = useState(true);
+const CityDefault = ({ city, loading, updateLoadingStatus }) => {
   let isFav = false;
 
   useEffect(() => {
     if(city)
-      setLoading(false);
-  }, [city]);
+      updateLoadingStatus(false);
+  }, [city, updateLoadingStatus]);
 
   return (
     <div id="city-default">
@@ -46,8 +46,13 @@ const CityDefault = ({ city }) => {
   )
 };
 
-const mapStateToProps = ({ frontCity, cities }) => ({
-  city: cities[frontCity]
+const mapStateToProps = ({ frontCity, cities, loading }) => ({
+  city: cities[frontCity],
+  loading
 });
 
-export default connect(mapStateToProps)(CityDefault);
+const mapDispatchToProps = {
+  updateLoadingStatus
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CityDefault);

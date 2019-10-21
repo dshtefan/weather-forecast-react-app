@@ -8,6 +8,17 @@ const updateInputField = (text) => ({
   text
 });
 
+const updateLoadingStatus = (loading) => ({
+  type: 'UPDATE_LADING_STATUS',
+  loading
+});
+
+
+const cityDelete = (index) => ({
+  type: 'DELETE_CITY',
+  index
+});
+
 const cityLoaded = (city) => ({
   type: 'FETCH_CITY_SUCCESS',
   city
@@ -44,5 +55,7 @@ export {
   locLoaded,
   locRequested,
   updateInputField,
-  cityUpdate
+  cityUpdate,
+  cityDelete,
+  updateLoadingStatus
 };

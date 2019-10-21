@@ -8,7 +8,7 @@ import { cityLoaded } from '../../actions';
 import {getWeatherByCityName} from "../../utils/getWeather";
 import {weatherDataProcessing} from "../../utils/weatherDataProcessing";
 
-const App = ({ apiKey, inputField, cities, cityLoaded }) => {
+const App = ({ apiKey, inputField, cityLoaded }) => {
 
   useEffect(() => {
     if(inputField){
@@ -19,11 +19,6 @@ const App = ({ apiKey, inputField, cities, cityLoaded }) => {
     }
   }, [inputField, apiKey, cityLoaded]);
 
-  useEffect(() => {
-    console.log("dwdqwqdwd");
-    console.log(cities);
-  }, [cities]);
-
   return (
     <div id={'app'}>
       <MainPage />
@@ -31,11 +26,10 @@ const App = ({ apiKey, inputField, cities, cityLoaded }) => {
   )
 };
 
-const mapStateToProps = ({ apiKey, frontCity, inputField, cities }) => ({
+const mapStateToProps = ({ apiKey, frontCity, inputField }) => ({
   apiKey,
   frontCity,
   inputField,
-  cities
 });
 
 const mapDispatchToProps = {

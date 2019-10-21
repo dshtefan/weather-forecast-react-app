@@ -3,7 +3,7 @@ const initialState = {
   inputField: null,
   cities: [],
   frontCity: 0,
-  loadingCoords: true,
+  loading: true,
   isGeoPosAvailable: null,
   cityDefault: 'London',
   coords: {
@@ -25,8 +25,22 @@ const reducer = (state = initialState, action) => {
         ...state,
         inputField: action.text
       };
+    case 'UPDATE_LADING_STATUS':
+      return {
+        ...state,
+        loading: action.loading
+      };
+    case 'DELETE_CITY':{
+      const cities = [...state.cities];
+      cities.splice(action.index, 1);
+      return {
+        ...state,
+        cities,
+        loading: true
+      };
+    }
     case 'FETCH_CITY_SUCCESS':{
-      let cities = [...state.cities];
+      const cities = [...state.cities];
       cities.unshift(action.city);
       return {
         ...state,
@@ -45,19 +59,19 @@ const reducer = (state = initialState, action) => {
     case 'FETCH_GEOLOCATION_REQUEST':
       return {
         ...state,
-        loadingCoords: action.loadingCoords,
+        loading: action.loadingCoords,
         isGeoPosAvailable: action.isGeoPosAvailable
       };
     case 'FETCH_GEOLOCATION_SUCCESS':
       return {
         ...state,
-        loadingCoords: action.loadingCoords,
+        loading: action.loadingCoords,
         isGeoPosAvailable: action.isGeoPosAvailable
       };
     case 'FETCH_GEOLOCATION_FAILURE':
       return {
         ...state,
-        loadingCoords: action.loadingCoords,
+        loading: action.loadingCoords,
         isGeoPosAvailable: action.isGeoPosAvailable
       };
     default:

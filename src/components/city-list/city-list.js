@@ -11,7 +11,7 @@ const CityList = ({ cities }) => {
     <div id="city-list">
       <InputBox />
       {
-        cities.map((el) => (<CityListItem city={el}/>))
+        cities.map((el, i) => (<CityListItem city={el} key={i} i={i}/>))
       }
     </div>
   )
