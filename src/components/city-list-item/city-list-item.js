@@ -27,7 +27,7 @@ const CityListItem = ({ city, i, cityDelete }) => {
           <div id="tab-info">
             <div id="tab-info-city">
               <div id="tab-info-city-text">
-                {`${city.city} ${city.temp}°`}
+                {!city.error ? `${city.city} ${city.temp}°`: ''}
               </div>
             </div>
             <div id="tab-info-icon">
@@ -41,20 +41,23 @@ const CityListItem = ({ city, i, cityDelete }) => {
               </div>
             </div>
           </div>
-          <div id="item-info">
-            <div id="item-info-left">
-              <div className="weather-info-line">Pressure:</div>
-              <div className="weather-info-line">Wind:</div>
-              <div className="weather-info-line">Humidity:</div>
-              <div className="weather-info-line">Coord.:</div>
+          {city.error
+            ? <div>{city.error}</div>
+            :<div id="item-info">
+              <div id="item-info-left">
+                <div className="weather-info-line">Pressure:</div>
+                <div className="weather-info-line">Wind:</div>
+                <div className="weather-info-line">Humidity:</div>
+                <div className="weather-info-line">Coord.:</div>
+              </div>
+              <div id="item-info-right">
+                <div className="weather-info-line">{city.pressure} hPa</div>
+                <div className="weather-info-line">{city.wind} m/s</div>
+                <div className="weather-info-line">{city.humidity}%</div>
+                <div className="weather-info-line">[{city.lat}, {city.lon}]</div>
+              </div>
             </div>
-            <div id="item-info-right">
-              <div className="weather-info-line">{city.pressure} hPa</div>
-              <div className="weather-info-line">{city.wind} m/s</div>
-              <div className="weather-info-line">{city.humidity}%</div>
-              <div className="weather-info-line">[{city.lat}, {city.lon}]</div>
-            </div>
-          </div>
+          }
         </div>
       }
     </div>

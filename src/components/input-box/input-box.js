@@ -1,16 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
 import './input-box.scss';
 
 import { updateInputField } from "../../actions";
 
-const InputBox = ({ inputField, updateInputField }) => {
+const InputBox = ({ updateInputField }) => {
   const [ inputValue, setInputValue ] = useState('');
-
-  useEffect(() => {
-    console.log(inputField);
-  }, [inputField]);
 
   const handleChange = (event) =>
     setInputValue(event.target.value);
@@ -42,12 +38,8 @@ const InputBox = ({ inputField, updateInputField }) => {
   )
 };
 
-const mapStateToProps = ({ inputField }) => ({
-  inputField
-});
-
 const mapDispatchToProps = {
   updateInputField
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(InputBox);
+export default connect(mapDispatchToProps)(InputBox);

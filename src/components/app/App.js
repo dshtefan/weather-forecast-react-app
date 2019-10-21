@@ -17,7 +17,6 @@ const App = ({
                cityRequest,
                locLoaded,
                cityDefault,
-               cityByCoords,
                locError,
                cityByCoordsLoaded}) => {
 
@@ -27,13 +26,12 @@ const App = ({
       getWeatherByCityName(inputField, apiKey)
         .then((res) => {
           cityLoaded(weatherDataProcessing(res.data));
+        })
+        .catch((err) => {
+          cityLoaded({error: err.message});
         });
     }
   }, [inputField, apiKey, cityLoaded, cityRequest]);
-
-  useEffect(() => {
-    console.log("CITY_COORDS: "+JSON.stringify(cityByCoords));
-  }, [cityByCoords]);
 
   const successGeoLocCallback = (pos) => {
     const lat = pos.coords.latitude;
@@ -54,7 +52,6 @@ const App = ({
   };
 
   useEffect(() => {
-    console.log(isGeoPosAvailable);
     if(isGeoPosAvailable === null)
       getGeoPosition(successGeoLocCallback, errorGeoLocCallback);
   });
