@@ -26,6 +26,9 @@ const App = (props) => {
     getWeatherByCoord(lat, lon, apiKey)
       .then((res) => {
         cityByCoordsLoaded(dataDestructuring(res.data));
+      })
+      .catch((err) => {
+        cityByCoordsLoaded({error: err.message});
       });
   };
 
@@ -34,6 +37,9 @@ const App = (props) => {
     getWeatherByCityName(cityDefault, apiKey)
       .then((res) => {
         cityByCoordsLoaded(dataDestructuring(res.data));
+      })
+      .catch((err) => {
+        cityByCoordsLoaded({error: err.message});
       });
   };
 

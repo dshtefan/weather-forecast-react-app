@@ -16,20 +16,25 @@ const CityDefault = ({ city, loading, locRequested }) => {
           <div id="icons-bar">
             <img id="navIcon" src={updIcon} alt="" onClick={updCityInfo}/>
           </div>
-          <div id="city-info">
-            <div id="city-info-name">{city.city}</div>
-            <div id="city-info-weather">{city.main}</div>
-          </div>
-          <div id="cd-weather-icon">
-            <img src={`https://dshtefan.github.io/weather-search-2/icons/${city.icon}.svg`} alt=""/>
-          </div>
-          <div id="cd-temp">{`${city.temp}°`}</div>
-          <div id="сd-weather-values">
-            <div>Pressure: <span id="cd-pressure">{city.pressure} pHa</span></div>
-            <div>Wind: <span id="cd-wind">{city.wind} m/s</span></div>
-            <div>Humidity: <span id="cd-himidity">{city.humidity}%</span></div>
-            <div>Coord: <span id="cd-coord">{`[${city.lat}: ${city.lon}]`}</span></div>
-          </div>
+          {city.error
+            ? <div>{city.error}</div>
+            : <div>
+              <div id="city-info">
+                <div id="city-info-name">{city.city}</div>
+                <div id="city-info-weather">{city.main}</div>
+              </div>
+              <div id="cd-weather-icon">
+                <img src={`https://dshtefan.github.io/weather-search-2/icons/${city.icon}.svg`} alt=""/>
+              </div>
+              <div id="cd-temp">{`${city.temp}°`}</div>
+              <div id="сd-weather-values">
+                <div>Pressure: <span id="cd-pressure">{city.pressure} pHa</span></div>
+                <div>Wind: <span id="cd-wind">{city.wind} m/s</span></div>
+                <div>Humidity: <span id="cd-himidity">{city.humidity}%</span></div>
+                <div>Coord: <span id="cd-coord">{`[${city.lat}: ${city.lon}]`}</span></div>
+              </div>
+            </div>
+          }
         </div>
       }
     </div>
