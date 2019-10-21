@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 
 import './city-list-item.scss';
 
-import weatherIcon from './svg/weather-icon.svg';
 import deleteIcon from './svg/delete.svg';
 import {cityDelete} from "../../actions";
 import Spinner from '../spinner';
@@ -32,7 +31,7 @@ const CityListItem = ({ city, i, cityDelete }) => {
             </div>
             <div id="tab-info-icon">
               <div id="tab-info-icon-svg">
-                {!city.error ? <img src={weatherIcon} alt=""/> : ''}
+                {!city.error ? <img src={`/icons/${city.icon}.svg`} alt=""/> : ''}
               </div>
             </div>
             <div id="tab-info-delete">
