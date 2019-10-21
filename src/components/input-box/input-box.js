@@ -17,6 +17,7 @@ const InputBox = ({ inputField, updateInputField }) => {
 
   const clickButton = (event) =>{
     event.preventDefault();
+    setInputValue('');
     updateInputField(inputValue);
   };
 
