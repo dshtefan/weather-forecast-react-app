@@ -1,8 +1,3 @@
-const apiLoaded = (key) => ({
-  type: 'API_LOADED',
-  payload: key
-});
-
 const updateInputField = (text) => ({
   type: 'UPDATE_INPUT_FIELD',
   text
@@ -12,7 +7,6 @@ const updateLoadingStatus = (loading) => ({
   type: 'UPDATE_LOADING_STATUS',
   loading
 });
-
 
 const cityDelete = (index) => ({
   type: 'DELETE_CITY',
@@ -26,12 +20,6 @@ const cityRequest = () => ({
 const cityLoaded = (city) => ({
   type: 'FETCH_CITY_SUCCESS',
   city
-});
-
-const cityUpdate = (i, city) => ({
-  type: 'UPDATE_CITY_SUCCESS',
-  city,
-  i
 });
 
 const locRequested = () => ({
@@ -55,14 +43,12 @@ const cityByCoordsLoaded = (city) => ({
 });
 
 export {
-  apiLoaded,
   cityRequest,
   cityLoaded,
   locError,
   locLoaded,
   locRequested,
   updateInputField,
-  cityUpdate,
   cityDelete,
   updateLoadingStatus,
   cityByCoordsLoaded

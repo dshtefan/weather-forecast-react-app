@@ -1,38 +1,15 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-
 import './app.scss';
-
 import { MainPage } from '../pages';
-import {cityByCoordsLoaded, cityLoaded, cityRequest, locError, locLoaded, locRequested} from '../../actions';
-import {getWeatherByCityName, getWeatherByCoord} from "../../utils/getWeather";
-import {weatherDataProcessing} from "../../utils/weatherDataProcessing";
-import {getGeoPosition} from "../../utils/getGeoPosition";
+import { cityByCoordsLoaded, cityLoaded, cityRequest, locError, locLoaded, locRequested } from '../../actions';
+import { getWeatherByCityName, getWeatherByCoord } from "../../utils/getWeather";
+import { dataDestructuring } from "../../utils/weatherDataProcessing";
+import { getGeoPosition } from "../../utils/getGeoPosition";
 
-const App = ({
-               apiKey,
-               inputField,
-               cityLoaded,
-               isGeoPosAvailable,
-               cityRequest,
-               locLoaded,
-               cityDefault,
-               locError,
-               cityByCoordsLoaded,
-               state}) => {
-
-  useEffect(() => {
-    if(inputField){
-      cityRequest();
-      getWeatherByCityName(inputField, apiKey)
-        .then((res) => {
-          cityLoaded(weatherDataProcessing(res.data));
-        })
-        .catch((err) => {
-          cityLoaded({error: err.message});
-        });
-    }
-  }, [inputField, apiKey, cityLoaded, cityRequest]);
+const App = (props) => {
+  const { cityLoaded, cityRequest, locLoaded, locError, cityByCoordsLoaded, state} = props;
+  const { apiKey, cityDefault, isGeoPosAvailable, inputField } = state;
 
   const successGeoLocCallback = (pos) => {
     const lat = pos.coords.latitude;
@@ -40,7 +17,7 @@ const App = ({
     locLoaded();
     getWeatherByCoord(lat, lon, apiKey)
       .then((res) => {
-        cityByCoordsLoaded(weatherDataProcessing(res.data));
+        cityByCoordsLoaded(dataDestructuring(res.data));
       });
   };
 
@@ -48,9 +25,22 @@ const App = ({
     locError();
     getWeatherByCityName(cityDefault, apiKey)
       .then((res) => {
-        cityByCoordsLoaded(weatherDataProcessing(res.data));
+        cityByCoordsLoaded(dataDestructuring(res.data));
       });
   };
+
+  useEffect(() => {
+    if(inputField){
+      cityRequest();
+      getWeatherByCityName(inputField, apiKey)
+        .then((res) => {
+          cityLoaded(dataDestructuring(res.data));
+        })
+        .catch((err) => {
+          cityLoaded({error: err.message});
+        });
+    }
+  }, [inputField, apiKey, cityLoaded, cityRequest]);
 
   useEffect(() => {
     if(isGeoPosAvailable === null)
@@ -65,20 +55,10 @@ const App = ({
     <div id={'app'}>
       <MainPage />
     </div>
-  )
+  );
 };
 
-const mapStateToProps = (state) => {
-  const { apiKey, cityDefault, isGeoPosAvailable, inputField, cityByCoords } = state;
-  return {
-    apiKey,
-    inputField,
-    isGeoPosAvailable,
-    cityByCoords,
-    cityDefault,
-    state
-  }
-};
+const mapStateToProps = (state) => ({state});
 
 const mapDispatchToProps = {
   cityLoaded,

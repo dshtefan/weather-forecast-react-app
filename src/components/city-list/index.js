@@ -1,3 +1,3 @@
-import CityList from './city-list'
+import CityList from './city-list';
 
-export default CityList
+export default CityList;

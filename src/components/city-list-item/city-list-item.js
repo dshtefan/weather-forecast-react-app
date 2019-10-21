@@ -1,14 +1,12 @@
-import React, {useState, useEffect} from 'react';
-import {connect} from 'react-redux'
-
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import './city-list-item.scss';
-
 import deleteIcon from './svg/delete.svg';
-import {cityDelete} from "../../actions";
+import { cityDelete } from "../../actions";
 import Spinner from '../spinner';
 
 const CityListItem = ({ city, i, cityDelete }) => {
-  const [loading, setLoading] = useState(true);
+  const [ loading, setLoading ] = useState(true);
   const deleteCity = () => cityDelete(i);
 
   useEffect(() => {
@@ -63,8 +61,4 @@ const CityListItem = ({ city, i, cityDelete }) => {
   )
 };
 
-const mapDispatchToProps = {
-  cityDelete
-};
-
-export default connect(null, mapDispatchToProps)(CityListItem);
+export default connect(null, { cityDelete })(CityListItem);

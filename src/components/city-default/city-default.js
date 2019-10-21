@@ -1,11 +1,9 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux'
-
+import { connect } from 'react-redux';
 import './city-default.scss';
-
 import updIcon from './svg/update.svg';
 import Spinner from '../spinner';
-import {locRequested, updateLoadingStatus} from "../../actions";
+import { locRequested, updateLoadingStatus } from "../../actions";
 
 const CityDefault = ({ city, loading, updateLoadingStatus, locRequested }) => {
 
