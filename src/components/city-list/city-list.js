@@ -10,9 +10,11 @@ const CityList = ({ cities }) => {
   return (
     <div id="city-list">
       <InputBox />
+      <div className={"city-list"}>
       {
         cities.map((el, i) => (<CityListItem city={el} key={i} i={i}/>))
       }
+      </div>
     </div>
   )
 };
