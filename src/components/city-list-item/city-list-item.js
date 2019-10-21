@@ -19,7 +19,7 @@ const CityListItem = ({ city, i, cityDelete }) => {
   }, [city]);
 
   return (
-    <div id={"cli"+i} className="city-list-item">
+    <div className="city-list-item">
       {loading
         ? <Spinner/>
         : <div className="city-list-item">

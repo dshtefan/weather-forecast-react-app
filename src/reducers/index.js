@@ -1,12 +1,14 @@
-const initialState = {
-  apiKey: '3dd82107b17241c740a2a087d34da02d',
-  inputField: null,
-  cities: [],
-  loading: true,
-  isGeoPosAvailable: null,
-  cityDefault: 'London',
-  cityByCoords: {}
-};
+const initialState = JSON.parse(localStorage.getItem('state'))
+  ? JSON.parse(localStorage.getItem('state'))
+  : {
+    apiKey: '3dd82107b17241c740a2a087d34da02d',
+    inputField: null,
+    cities: [],
+    loading: true,
+    isGeoPosAvailable: null,
+    cityDefault: 'London',
+    cityByCoords: {}
+  };
 
 const reducer = (state = initialState, action) => {
   switch(action.type){
@@ -20,7 +22,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         inputField: action.text
       };
-    case 'UPDATE_LADING_STATUS':
+    case 'UPDATE_LOADING_STATUS':
       return {
         ...state,
         loading: action.loading

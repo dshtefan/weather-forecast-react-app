@@ -18,7 +18,8 @@ const App = ({
                locLoaded,
                cityDefault,
                locError,
-               cityByCoordsLoaded}) => {
+               cityByCoordsLoaded,
+               state}) => {
 
   useEffect(() => {
     if(inputField){
@@ -56,6 +57,10 @@ const App = ({
       getGeoPosition(successGeoLocCallback, errorGeoLocCallback);
   });
 
+  useEffect(() => {
+    localStorage.setItem('state', JSON.stringify({...state, inputField: null}));
+  }, [state]);
+
   return (
     <div id={'app'}>
       <MainPage />
@@ -63,16 +68,17 @@ const App = ({
   )
 };
 
-const mapStateToProps = ({ apiKey, frontCity, loading, cityDefault, isGeoPosAvailable, coords, inputField, cityByCoords }) => ({
-  apiKey,
-  frontCity,
-  inputField,
-  isGeoPosAvailable,
-  loading,
-  coords,
-  cityByCoords,
-  cityDefault
-});
+const mapStateToProps = (state) => {
+  const { apiKey, cityDefault, isGeoPosAvailable, inputField, cityByCoords } = state;
+  return {
+    apiKey,
+    inputField,
+    isGeoPosAvailable,
+    cityByCoords,
+    cityDefault,
+    state
+  }
+};
 
 const mapDispatchToProps = {
   cityLoaded,

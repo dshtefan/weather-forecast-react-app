@@ -9,7 +9,7 @@ const updateInputField = (text) => ({
 });
 
 const updateLoadingStatus = (loading) => ({
-  type: 'UPDATE_LADING_STATUS',
+  type: 'UPDATE_LOADING_STATUS',
   loading
 });
 
