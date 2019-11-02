@@ -3,21 +3,41 @@ import { connect } from 'react-redux';
 import './app.scss';
 import { MainPage } from '../pages';
 import { getWeatherByCityName, getWeatherByCoord } from "../../utils/getWeather";
-import { dataDestructuring } from "../../utils/weatherDataProcessing";
-import { getGeoPosition } from "../../utils/getGeoPosition";
+import dataDestructuring from "../../utils/weatherDataProcessing";
+import getGeoPosition from "../../utils/getGeoPosition";
+import saveToLocalStorage from "../../utils/saveToLocalStorage";
 import {
   cityByCoordsLoaded,
+  cityError,
   cityLoaded,
-  cityRequest,
+  cityRequest, deleteCityFromQueue,
   locError,
   locLoaded,
   locRequested,
   updateLoadingStatus
 } from '../../actions';
+import saveCityToStore from "../../utils/saveCityToStore";
 
 const App = (props) => {
-  const { cityLoaded, cityRequest, locLoaded, locError, cityByCoordsLoaded, updateLoadingStatus, state} = props;
-  const { apiKey, cityDefault, isGeoPosAvailable, inputField, cityByCoords } = state;
+  const {
+    deleteCityFromQueue,
+    cityError,
+    cityLoaded,
+    cityRequest,
+    locLoaded,
+    locError,
+    cityByCoordsLoaded,
+    updateLoadingStatus,
+    state
+  } = props;
+  const {
+    apiKey,
+    cityDefault,
+    isGeoPosAvailable,
+    cityByCoords,
+    cities,
+    citiesQueue
+  } = state;
 
   const successGeoLocCallback = (pos) => {
     const lat = pos.coords.latitude;
@@ -44,17 +64,15 @@ const App = (props) => {
   };
 
   useEffect(() => {
-    if(inputField){
-      cityRequest();
-      getWeatherByCityName(inputField, apiKey)
-        .then((res) => {
-          cityLoaded(dataDestructuring(res.data));
-        })
-        .catch((err) => {
-          cityLoaded({error: err.message});
-        });
+    if(citiesQueue.length > 0){
+      if(cities.length < 4) {
+        saveCityToStore(citiesQueue[0], apiKey, cityLoaded, cityError, cityRequest);
+        deleteCityFromQueue();
+      } else {
+        deleteCityFromQueue();
+      }
     }
-  }, [inputField, apiKey, cityLoaded, cityRequest]);
+  }, [citiesQueue, cities, deleteCityFromQueue, apiKey, cityLoaded, cityRequest, cityError]);
 
   useEffect(() => {
     if(isGeoPosAvailable === null)
@@ -68,7 +86,7 @@ const App = (props) => {
 
 
   useEffect(() => {
-    localStorage.setItem('state', JSON.stringify({...state, inputField: null}));
+    saveToLocalStorage(state);
   }, [state]);
 
   return (
@@ -87,7 +105,9 @@ const mapDispatchToProps = {
   locLoaded,
   locRequested,
   cityByCoordsLoaded,
-  updateLoadingStatus
+  updateLoadingStatus,
+  cityError,
+  deleteCityFromQueue
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

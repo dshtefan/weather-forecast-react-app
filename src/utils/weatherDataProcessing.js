@@ -1,4 +1,4 @@
-export const dataDestructuring = weather => {
+const dataDestructuring = weather => {
   let {
     name,
     main: { temp, humidity, pressure },
@@ -22,3 +22,5 @@ export const dataDestructuring = weather => {
     lat: coord.lat
   }
 };
+
+export default dataDestructuring;

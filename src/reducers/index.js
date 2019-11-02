@@ -1,12 +1,23 @@
-import initialState from "./initial-state";
+import initialState from '../utils/initialState'
 
 const reducer = (state = initialState, action) => {
   switch(action.type){
-    case 'UPDATE_INPUT_FIELD':
+    case 'ADD_CITY_TO_QUEUE': {
+      const citiesQueue = [...state.citiesQueue];
+      citiesQueue.push(action.city);
       return {
         ...state,
-        inputField: action.text
+        citiesQueue
       };
+    }
+    case 'DELETE_CITY_FROM_QUEUE': {
+      const citiesQueue = [...state.citiesQueue];
+      citiesQueue.shift();
+      return {
+        ...state,
+        citiesQueue
+      };
+    }
     case 'UPDATE_LOADING_STATUS':
       return {
         ...state,
@@ -24,6 +35,16 @@ const reducer = (state = initialState, action) => {
     case 'FETCH_CITY_REQUEST':{
       const cities = [...state.cities];
       cities.push({});
+      return {
+        ...state,
+        cities
+      };
+    }
+    case 'FETCH_CITY_ERROR':{
+      const cities = [...state.cities];
+      const i = cities.filter((item) =>
+        (JSON.stringify(item) !== JSON.stringify({}))).length;
+      cities.splice(i, 1);
       return {
         ...state,
         cities

@@ -2,4 +2,4 @@ const getGeoPosition = (successCallback, errorCallback) => {
   navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 };
 
-export { getGeoPosition };
+export default getGeoPosition;

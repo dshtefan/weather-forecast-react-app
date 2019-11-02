@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import './input-box.scss';
-import { updateInputField } from "../../actions";
+import { addCityToQueue } from "../../actions";
 
-const InputBox = ({ updateInputField }) => {
+const InputBox = ({ addCityToQueue }) => {
   const [ inputValue, setInputValue ] = useState('');
 
   const handleChange = (event) =>
@@ -12,7 +12,7 @@ const InputBox = ({ updateInputField }) => {
   const clickButton = (event) =>{
     event.preventDefault();
     setInputValue('');
-    updateInputField(inputValue);
+    addCityToQueue(inputValue);
   };
 
   return (
@@ -36,8 +36,4 @@ const InputBox = ({ updateInputField }) => {
   )
 };
 
-const mapDispatchToProps = {
-  updateInputField
-};
-
-export default connect(null, mapDispatchToProps)(InputBox);
+export default connect( null, { addCityToQueue } )( InputBox );

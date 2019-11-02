@@ -1,8 +1,3 @@
-const updateInputField = (text) => ({
-  type: 'UPDATE_INPUT_FIELD',
-  text
-});
-
 const updateLoadingStatus = (loading) => ({
   type: 'UPDATE_LOADING_STATUS',
   loading
@@ -19,6 +14,11 @@ const cityRequest = () => ({
 
 const cityLoaded = (city) => ({
   type: 'FETCH_CITY_SUCCESS',
+  city
+});
+
+const cityError = (city = '') => ({
+  type: 'FETCH_CITY_ERROR',
   city
 });
 
@@ -42,14 +42,25 @@ const cityByCoordsLoaded = (city) => ({
   city
 });
 
+const addCityToQueue = (city) => ({
+  type: 'ADD_CITY_TO_QUEUE',
+  city
+});
+
+const deleteCityFromQueue = () => ({
+  type: 'DELETE_CITY_FROM_QUEUE'
+});
+
 export {
   cityRequest,
   cityLoaded,
   locError,
   locLoaded,
   locRequested,
-  updateInputField,
   cityDelete,
   updateLoadingStatus,
-  cityByCoordsLoaded
+  cityByCoordsLoaded,
+  cityError,
+  addCityToQueue,
+  deleteCityFromQueue
 };
