@@ -1,7 +1,7 @@
 import React from 'react';
-import CityDefault from '../city-default';
-import CityList from '../city-list';
-import './main-page.scss';
+import CityDefault from '../CityDefault';
+import CityList from '../CityList';
+import './MainPage.scss';
 
 const MainPage = () =>
   <div id={'main-page'}>

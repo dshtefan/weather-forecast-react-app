@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import './app.scss';
-import { MainPage } from '../pages';
+import './App.scss';
+import { MainPage } from '../Pages';
 import { getWeatherByCityName, getWeatherByCoord } from "../../utils/getWeather";
 import dataDestructuring from "../../utils/weatherDataProcessing";
 import getGeoPosition from "../../utils/getGeoPosition";

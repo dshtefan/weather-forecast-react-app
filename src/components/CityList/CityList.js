@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import './city-list.scss';
-import CityListItem from '../city-list-item';
-import InputBox from '../input-box';
+import './CityList.scss';
+import CityListItem from '../CityListItem';
+import InputBox from '../InputBox';
 
 const CityList = ({ cities }) => {
   return (

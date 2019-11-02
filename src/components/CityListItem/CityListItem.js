@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import './city-list-item.scss';
+import './CityListItem.scss';
 import deleteIcon from './svg/delete.svg';
 import { cityDelete } from "../../actions";
-import Spinner from '../spinner';
+import Spinner from '../Spinner';
 
 const CityListItem = ({ city, i, cityDelete }) => {
   const [ loading, setLoading ] = useState(true);

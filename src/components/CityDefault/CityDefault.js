@@ -1,8 +1,8 @@
 import React  from 'react';
 import { connect } from 'react-redux';
-import './city-default.scss';
+import './CityDefault.scss';
 import updIcon from './svg/update.svg';
-import Spinner from '../spinner';
+import Spinner from '../Spinner';
 import { locRequested } from "../../actions";
 
 const CityDefault = ({ city, loading, locRequested }) => {
