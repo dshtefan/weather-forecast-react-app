@@ -4,6 +4,7 @@ import './CityListItem.scss';
 import deleteIcon from './svg/delete.svg';
 import { cityDelete } from "../../actions";
 import Spinner from '../Spinner';
+import WeatherInfo from "../WeatherInfo";
 
 const CityListItem = ({ city, i, cityDelete }) => {
   const [ loading, setLoading ] = useState(true);
@@ -40,20 +41,13 @@ const CityListItem = ({ city, i, cityDelete }) => {
           </div>
           {city.error
             ? <div className="error-message">{city.error}</div>
-            :<div id="item-info">
-              <div id="item-info-left">
-                <div className="weather-info-line">Pressure:</div>
-                <div className="weather-info-line">Wind:</div>
-                <div className="weather-info-line">Humidity:</div>
-                <div className="weather-info-line">Coord.:</div>
-              </div>
-              <div id="item-info-right">
-                <div className="weather-info-line">{city.pressure} hPa</div>
-                <div className="weather-info-line">{city.wind} m/s</div>
-                <div className="weather-info-line">{city.humidity}%</div>
-                <div className="weather-info-line">[{city.lat}, {city.lon}]</div>
-              </div>
-            </div>
+            : <WeatherInfo
+                pressure={city.pressure}
+                humidity={city.humidity}
+                wind={city.wind}
+                lat={city.lat}
+                lon={city.lon}
+            />
           }
         </div>
       }

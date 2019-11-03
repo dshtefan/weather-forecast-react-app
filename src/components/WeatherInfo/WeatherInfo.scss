@@ -1,0 +1,20 @@
+#item-info{
+  width: 98%;
+  display: flex;
+}
+#item-info-left{
+  width: 30%;
+  height: 100%;
+}
+#item-info-right{
+  width: 70%;
+  height: 100%;
+  .weather-info-line{
+    text-align: end;
+  }
+}
+.weather-info-line{
+  height: 60px;
+  font-size: 25px;
+  color: rgba($color: #FFF4F4, $alpha: 0.75);
+}

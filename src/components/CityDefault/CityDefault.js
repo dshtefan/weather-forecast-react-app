@@ -5,6 +5,7 @@ import updIcon from './svg/update.svg';
 import errIcon from './svg/err.svg'
 import Spinner from '../Spinner';
 import { locRequested } from "../../actions";
+import WeatherInfo from "../WeatherInfo";
 
 const CityDefault = ({ city, loading, locRequested, errorMessage }) => {
   const updCityInfo = () => locRequested();
@@ -31,10 +32,13 @@ const CityDefault = ({ city, loading, locRequested, errorMessage }) => {
               </div>
               <div id="cd-temp">{`${city.temp}°`}</div>
               <div id="сd-weather-values">
-                <div>Pressure: <span id="cd-pressure">{city.pressure} pHa</span></div>
-                <div>Wind: <span id="cd-wind">{city.wind} m/s</span></div>
-                <div>Humidity: <span id="cd-himidity">{city.humidity}%</span></div>
-                <div>Coord: <span id="cd-coord">{`[${city.lat}: ${city.lon}]`}</span></div>
+                <WeatherInfo
+                  pressure={city.pressure}
+                  humidity={city.humidity}
+                  wind={city.wind}
+                  lat={city.lat}
+                  lon={city.lon}
+                  />
               </div>
             </div>
           }
