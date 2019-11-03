@@ -5,7 +5,8 @@ const storeTemplate = {
   loading: true,
   isGeoPosAvailable: null,
   cityDefault: 'Moscow',
-  cityByCoords: {}
+  cityByCoords: {},
+  errorMessage: null
 };
 
 export default storeTemplate;

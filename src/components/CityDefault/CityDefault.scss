@@ -1,12 +1,14 @@
 #icons-bar {
-  width: 30px;
+  width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   cursor: pointer;
   img {
     width: 30px;
     height: 30px;
+  }
+  #errIcon{
+    margin-left: 30px;
   }
 }
 #city-info {
@@ -42,4 +44,11 @@
 }
 .city-default{
   height: 100%;
+}
+.error{
+  margin-left: 10px;
+  color: #ff4848;
+  font-size: 25px;
+  font-weight: bold;
+  white-space: nowrap;
 }

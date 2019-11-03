@@ -51,6 +51,16 @@ const deleteCityFromQueue = () => ({
   type: 'DELETE_CITY_FROM_QUEUE'
 });
 
+const addErrorMessage = (message) => ({
+  type: 'ADD_ERROR_MESSAGE',
+  message
+});
+
+const clearErrorMessage = () => ({
+  type: 'CLEAR_ERROR_MESSAGE'
+});
+
+
 export {
   cityRequest,
   cityLoaded,
@@ -62,5 +72,7 @@ export {
   cityByCoordsLoaded,
   cityError,
   addCityToQueue,
-  deleteCityFromQueue
+  deleteCityFromQueue,
+  addErrorMessage,
+  clearErrorMessage
 };

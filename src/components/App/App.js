@@ -7,20 +7,22 @@ import dataDestructuring from "../../utils/weatherDataProcessing";
 import getGeoPosition from "../../utils/getGeoPosition";
 import saveToLocalStorage from "../../utils/saveToLocalStorage";
 import {
+  addErrorMessage,
   cityByCoordsLoaded,
   cityError,
   cityLoaded,
-  cityRequest, deleteCityFromQueue,
+  cityRequest, clearErrorMessage, deleteCityFromQueue,
   locError,
   locLoaded,
   locRequested,
   updateLoadingStatus
 } from '../../actions';
-import saveCityToStore from "../../utils/saveCityToStore";
 
 const App = (props) => {
   const {
     deleteCityFromQueue,
+    addErrorMessage,
+    clearErrorMessage,
     cityError,
     cityLoaded,
     cityRequest,
@@ -66,13 +68,32 @@ const App = (props) => {
   useEffect(() => {
     if(citiesQueue.length > 0){
       if(cities.length < 4) {
-        saveCityToStore(citiesQueue[0], apiKey, cityLoaded, cityError, cityRequest);
+        cityRequest();
+        getWeatherByCityName(citiesQueue[0], apiKey)
+          .then((res) => {
+            cityLoaded(dataDestructuring(res.data));
+            clearErrorMessage();
+          })
+          .catch((err) => {
+            cityError();
+            addErrorMessage(err.message);
+          });
         deleteCityFromQueue();
       } else {
         deleteCityFromQueue();
       }
     }
-  }, [citiesQueue, cities, deleteCityFromQueue, apiKey, cityLoaded, cityRequest, cityError]);
+  }, [
+    citiesQueue,
+    addErrorMessage,
+    clearErrorMessage,
+    cities,
+    deleteCityFromQueue,
+    apiKey,
+    cityLoaded,
+    cityRequest,
+    cityError
+  ]);
 
   useEffect(() => {
     if(isGeoPosAvailable === null)
@@ -80,8 +101,8 @@ const App = (props) => {
   });
 
   useEffect(() => {
-    if(cityByCoords && JSON.stringify(cityByCoords) !== '{}'){
-      updateLoadingStatus(false);}
+    if(cityByCoords && JSON.stringify(cityByCoords) !== '{}')
+      updateLoadingStatus(false);
   }, [cityByCoords, updateLoadingStatus]);
 
 
@@ -107,7 +128,9 @@ const mapDispatchToProps = {
   cityByCoordsLoaded,
   updateLoadingStatus,
   cityError,
-  deleteCityFromQueue
+  deleteCityFromQueue,
+  addErrorMessage,
+  clearErrorMessage
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

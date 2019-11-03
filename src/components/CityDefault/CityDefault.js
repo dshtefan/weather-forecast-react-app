@@ -2,10 +2,11 @@ import React  from 'react';
 import { connect } from 'react-redux';
 import './CityDefault.scss';
 import updIcon from './svg/update.svg';
+import errIcon from './svg/err.svg'
 import Spinner from '../Spinner';
 import { locRequested } from "../../actions";
 
-const CityDefault = ({ city, loading, locRequested }) => {
+const CityDefault = ({ city, loading, locRequested, errorMessage }) => {
   const updCityInfo = () => locRequested();
 
   return (
@@ -15,6 +16,8 @@ const CityDefault = ({ city, loading, locRequested }) => {
         : <div>
           <div id="icons-bar">
             <img id="navIcon" src={updIcon} alt="" onClick={updCityInfo}/>
+            {errorMessage !== null ? <img id="errIcon" src={errIcon} alt=""/> : null}
+            {errorMessage !== null ? <div className="error">{errorMessage}</div> : null}
           </div>
           {city.error
             ? <div>{city.error}</div>
@@ -41,9 +44,10 @@ const CityDefault = ({ city, loading, locRequested }) => {
   )
 };
 
-const mapStateToProps = ({ loading, cityByCoords }) => ({
+const mapStateToProps = ({ loading, cityByCoords, errorMessage }) => ({
   city: cityByCoords,
-  loading
+  loading,
+  errorMessage
 });
 
 export default connect(mapStateToProps, { locRequested })(CityDefault);

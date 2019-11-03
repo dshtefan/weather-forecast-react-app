@@ -1,4 +1,4 @@
-import initialState from '../utils/initialState'
+import initialState from '../store/initialState'
 
 const reducer = (state = initialState, action) => {
   switch(action.type){
@@ -82,6 +82,16 @@ const reducer = (state = initialState, action) => {
         cityByCoords: action.city
       };
     }
+    case 'ADD_ERROR_MESSAGE':
+      return {
+        ...state,
+        errorMessage: action.message
+      };
+    case 'CLEAR_ERROR_MESSAGE':
+      return {
+        ...state,
+        errorMessage: null
+      };
     default:
       return state;
   }
