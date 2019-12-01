@@ -1,0 +1,5 @@
+export { default as getGeoPosition } from './getGeoPosition'
+export { default as getLocalState } from './getLocalState'
+export { default as saveToLocalStorage } from './saveToLocalStorage'
+export { default as dataDestructuring } from './weatherDataProcessing'
+export { getWeatherByCoord, getWeatherByCityName } from './getWeather'

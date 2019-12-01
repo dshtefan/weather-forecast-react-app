@@ -1,44 +1,13 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getWeatherByCityName, getWeatherByCoord } from "./utils/getWeather";
-import dataDestructuring from "./utils/weatherDataProcessing";
-import getGeoPosition from "./utils/getGeoPosition";
-import saveToLocalStorage from "./utils/saveToLocalStorage";
-import {
-  addErrorMessage,
-  cityByCoordsLoaded,
-  cityError,
-  cityLoaded,
-  cityRequest, clearErrorMessage, deleteCityFromQueue,
-  locError,
-  locLoaded,
-  locRequested,
-  updateLoadingStatus
-} from './actions';
+import * as utils from "./utils";
+import * as actions from './actions';
 import Page from './components/Page'
 
 const App = (props) => {
-  const {
-    deleteCityFromQueue,
-    addErrorMessage,
-    clearErrorMessage,
-    cityError,
-    cityLoaded,
-    cityRequest,
-    locLoaded,
-    locError,
-    cityByCoordsLoaded,
-    updateLoadingStatus,
-    state
-  } = props;
-  const {
-    apiKey,
-    cityDefault,
-    isGeoPosAvailable,
-    cityByCoords,
-    cities,
-    citiesQueue
-  } = state;
+  const {deleteCityFromQueue, addErrorMessage, clearErrorMessage, cityError, cityLoaded, cityRequest, locLoaded, locError, cityByCoordsLoaded, updateLoadingStatus, state} = props;
+  const { apiKey, cityDefault, isGeoPosAvailable, cityByCoords, cities, citiesQueue } = state;
+  const { getWeatherByCityName, getWeatherByCoord, dataDestructuring, getGeoPosition, saveToLocalStorage } = utils;
 
   const successGeoLocCallback = (pos) => {
     const lat = pos.coords.latitude;
@@ -82,17 +51,7 @@ const App = (props) => {
         deleteCityFromQueue();
       }
     }
-  }, [
-    citiesQueue,
-    addErrorMessage,
-    clearErrorMessage,
-    cities,
-    deleteCityFromQueue,
-    apiKey,
-    cityLoaded,
-    cityRequest,
-    cityError
-  ]);
+  });
 
   useEffect(() => {
     if(isGeoPosAvailable === null)
@@ -107,25 +66,13 @@ const App = (props) => {
 
   useEffect(() => {
     saveToLocalStorage(state);
-  }, [state]);
+  });
 
   return <Page/>;
 };
 
 const mapStateToProps = (state) => ({state});
 
-const mapDispatchToProps = {
-  cityLoaded,
-  cityRequest,
-  locError,
-  locLoaded,
-  locRequested,
-  cityByCoordsLoaded,
-  updateLoadingStatus,
-  cityError,
-  deleteCityFromQueue,
-  addErrorMessage,
-  clearErrorMessage
-};
+const mapDispatchToProps = {...actions};
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

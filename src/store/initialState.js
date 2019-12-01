@@ -1,4 +1,4 @@
-import getLocalState from "../utils/getLocalState";
+import { getLocalState } from "../utils";
 import storeTemplate from "./storeTemplate";
 
 const localState = getLocalState();
