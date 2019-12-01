@@ -1,22 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
-import './CityListItem.scss';
+import React from 'react';
+import './FavoriteCity.scss';
 import deleteIcon from './svg/delete.svg';
-import { cityDelete } from "../../actions";
-import Spinner from '../Spinner';
-import WeatherInfo from "../WeatherInfo";
+import { Spinner, WeatherInfo } from "../";
 
-const CityListItem = ({ city, i, cityDelete }) => {
-  const [ loading, setLoading ] = useState(true);
-  const deleteCity = () => cityDelete(i);
-
-  useEffect(() => {
-    if(city && JSON.stringify(city) !== '{}'){
-      setLoading(false);}
-    else
-      setLoading(true);
-  }, [city]);
-
+const FavoriteCity = ({ city, loading, deleteCity }) => {
   return (
     <div className="item">
       {loading ?
@@ -39,4 +26,4 @@ const CityListItem = ({ city, i, cityDelete }) => {
   )
 };
 
-export default connect(null, { cityDelete })(CityListItem);
+export default FavoriteCity;

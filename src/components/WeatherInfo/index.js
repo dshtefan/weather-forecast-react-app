@@ -1,3 +1,1 @@
-import WeatherInfo from "./WeatherInfo";
-
-export default WeatherInfo;
+export {default} from './WeatherInfo';

@@ -1,4 +1,4 @@
-.city-default {
+.current-city {
   grid-area: cd;
   max-height: 650px;
   display: flex;
@@ -6,22 +6,22 @@
   justify-content: space-between;
   margin-bottom: 30px;
 }
-.city-default__name {
+.current-city__name {
 
 }
-.city-default__city-name {
+.current-city__city-name {
   font-size: 43px;
 }
-.city-default__weather {
+.current-city__weather {
   font-size: 26px;
 }
-.city-default__temp {
+.current-city__temp {
   display: flex;
 }
 .city-default__weather-icon img{
   width: 100px;
 }
-.city-default__temperature {
+.current-city__temperature {
   font-size: 80px;
   color: #C0E7E2;
   margin-left: 20px;

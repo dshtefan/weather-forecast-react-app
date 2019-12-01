@@ -1,11 +1,9 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import './App.scss';
-import { MainPage } from '../Pages';
-import { getWeatherByCityName, getWeatherByCoord } from "../../utils/getWeather";
-import dataDestructuring from "../../utils/weatherDataProcessing";
-import getGeoPosition from "../../utils/getGeoPosition";
-import saveToLocalStorage from "../../utils/saveToLocalStorage";
+import { getWeatherByCityName, getWeatherByCoord } from "./utils/getWeather";
+import dataDestructuring from "./utils/weatherDataProcessing";
+import getGeoPosition from "./utils/getGeoPosition";
+import saveToLocalStorage from "./utils/saveToLocalStorage";
 import {
   addErrorMessage,
   cityByCoordsLoaded,
@@ -16,7 +14,8 @@ import {
   locLoaded,
   locRequested,
   updateLoadingStatus
-} from '../../actions';
+} from './actions';
+import Page from './components/Page'
 
 const App = (props) => {
   const {
@@ -110,7 +109,7 @@ const App = (props) => {
     saveToLocalStorage(state);
   }, [state]);
 
-  return <MainPage/>;
+  return <Page/>;
 };
 
 const mapStateToProps = (state) => ({state});

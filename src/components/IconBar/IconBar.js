@@ -2,8 +2,6 @@ import React from 'react';
 import './IconBar.scss';
 import updIcon from './svg/update.svg';
 import errIcon from './svg/err.svg';
-import {connect} from "react-redux";
-import {locRequested} from "../../actions";
 
 const IconBar = ({ locRequested, errorMessage }) => {
   return (
@@ -17,4 +15,4 @@ const IconBar = ({ locRequested, errorMessage }) => {
   )
 };
 
-export default connect(({errorMessage}) => ({errorMessage}), { locRequested })(IconBar);
+export default IconBar;

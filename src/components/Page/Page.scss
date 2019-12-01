@@ -1,4 +1,4 @@
-.main-page {
+.page {
   display: grid;
   grid-template-areas:
           "srch ib"
@@ -10,7 +10,7 @@
   max-width: calc(100vw - 80px);
 }
 @media (max-width: 980px) {
-  .main-page {
+  .page {
     grid-template-areas:
             "ib"
             "srch"
