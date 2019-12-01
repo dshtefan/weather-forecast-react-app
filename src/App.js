@@ -5,8 +5,9 @@ import * as actions from './actions';
 import Page from './components/Page'
 
 const App = (props) => {
-  const {deleteCityFromQueue, addErrorMessage, clearErrorMessage, cityError, cityLoaded, cityRequest, locLoaded, locError, cityByCoordsLoaded, updateLoadingStatus, state} = props;
-  const { apiKey, cityDefault, isGeoPosAvailable, cityByCoords, cities, citiesQueue } = state;
+  const {deleteCityFromQueue, addErrorMessage, clearErrorMessage, cityError, cityLoaded,
+    cityRequest, locLoaded, locError, cityByCoordsLoaded, updateLoadingStatus, state} = props;
+  const { apiKey, cityDefault, isGeoPosAvailable, cityByCoords, citiesQueue } = state;
   const { getWeatherByCityName, getWeatherByCoord, dataDestructuring, getGeoPosition, saveToLocalStorage } = utils;
 
   const successGeoLocCallback = (pos) => {
@@ -35,21 +36,17 @@ const App = (props) => {
 
   useEffect(() => {
     if(citiesQueue.length > 0){
-      if(cities.length < 4) {
-        cityRequest();
-        getWeatherByCityName(citiesQueue[0], apiKey)
-          .then((res) => {
-            cityLoaded(dataDestructuring(res.data));
-            clearErrorMessage();
-          })
-          .catch((err) => {
-            cityError();
-            addErrorMessage(err.message);
-          });
-        deleteCityFromQueue();
-      } else {
-        deleteCityFromQueue();
-      }
+      cityRequest();
+      getWeatherByCityName(citiesQueue[0], apiKey)
+        .then((res) => {
+          cityLoaded(dataDestructuring(res.data));
+          clearErrorMessage();
+        })
+        .catch((err) => {
+          cityError();
+          addErrorMessage(err.message);
+        });
+      deleteCityFromQueue();
     }
   });
 
@@ -62,7 +59,6 @@ const App = (props) => {
     if(cityByCoords && JSON.stringify(cityByCoords) !== '{}')
       updateLoadingStatus(false);
   }, [cityByCoords, updateLoadingStatus]);
-
 
   useEffect(() => {
     saveToLocalStorage(state);
