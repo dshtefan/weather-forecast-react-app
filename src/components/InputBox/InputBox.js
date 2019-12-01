@@ -16,22 +16,20 @@ const InputBox = ({ addCityToQueue }) => {
   };
 
   return (
-    <div id="input-box-main">
-      <div id="input-box">
-        <form id="input-form">
-          <input
-            id="input-field"
-            onChange={handleChange}
-            value={ inputValue }
-          />
-          <button
-            id="search-button"
-            onClick={clickButton}
-          >
-            Search
-          </button>
-        </form>
-      </div>
+    <div className="search">
+      <form className="input-form">
+        <input
+          className="input-field"
+          onChange={handleChange}
+          value={ inputValue }
+        />
+        <button
+          className="search-button"
+          onClick={clickButton}
+        >
+          Search
+        </button>
+      </form>
     </div>
   )
 };

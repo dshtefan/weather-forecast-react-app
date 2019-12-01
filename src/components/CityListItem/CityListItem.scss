@@ -1,52 +1,58 @@
-.city-list-item {
-  width: 520px;
-  height: 350px;
-  background-color: #084a4a4d;
+.city-list {
+  grid-area: cl;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+.item {
+  height: 220px;
+  width: 350px;
+  background: rgba(196, 196, 196, 0.06);
+  border: 1px solid rgba(196, 196, 196, 0.6);
+  border-radius: 6px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.item-content {
+  margin:3px 5px 10px;
+  height: calc(100% - 13px);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border-radius: 10px;
 }
-#tab-info{
-  height: 30%;
-  width: 98%;
+.item-header {
+  height: 30px;
+  width: 100%;
   display: flex;
+}
+.item-header-city {
+  flex-grow: 1;
+  font-size: 25px;
+  font-weight: 300;
+}
+.item-body {
+  display: flex;
+  flex-grow: 1;
+}
+.item-body-left {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
-#item-info{
-  height: 70%;
-  width: 100%;
+.item-temperature {
+  font-size: 55px;
+  color: #C0E7E2;
 }
-#tab-info-city{
-  height: 100%;
-  flex-grow: 60;
-  display: flex;
-  align-items: center;
-  font-size: 32px;
-  font-weight: bold;
-}
-#tab-info-city-text{
-}
-#tab-info-icon-svg{
-}
-#tab-info-icon{
-  height: 100%;
-  flex-grow: 20;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-#tab-info-delete{
-  height: 100%;
-  flex-grow: 13;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+.del-icon {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
 }
 .error-message{
   font-size: 28px;
 }
-#tab-info-delete-svg{
-  cursor: pointer;
+.item-body-left img{
+  width: 72px;
+  height: 72px;
 }

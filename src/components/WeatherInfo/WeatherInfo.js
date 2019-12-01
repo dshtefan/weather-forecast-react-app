@@ -3,19 +3,11 @@ import './WeatherInfo.scss'
 
 const WeatherInfo = ({ pressure, wind, humidity, lat, lon}) => {
   return (
-    <div id="item-info">
-      <div id="item-info-left">
-        <div className="weather-info-line">Pressure:</div>
-        <div className="weather-info-line">Wind:</div>
-        <div className="weather-info-line">Humidity:</div>
-        <div className="weather-info-line">Coord.:</div>
-      </div>
-      <div id="item-info-right">
-        <div className="weather-info-line">{pressure} hPa</div>
-        <div className="weather-info-line">{wind} m/s</div>
-        <div className="weather-info-line">{humidity}%</div>
-        <div className="weather-info-line">[{lat}, {lon}]</div>
-      </div>
+    <div className="info-block">
+      <div className="item-info">Pressure: {pressure}</div>
+      <div className="item-info">Wind: {wind}</div>
+      <div className="item-info">Humidity: {humidity}</div>
+      <div className="item-info">Coord: [{lat}, {lon}]</div>
     </div>
   );
 };

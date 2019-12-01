@@ -1,54 +1,28 @@
-#icons-bar {
-  width: 100%;
+.city-default {
+  grid-area: cd;
+  max-height: 650px;
   display: flex;
-  flex-direction: row;
-  cursor: pointer;
-  img {
-    width: 30px;
-    height: 30px;
-  }
-  #errIcon{
-    margin-left: 30px;
-  }
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 30px;
 }
-#city-info {
-  height: 150px;
-  margin-top: 50px;
-  #city-info-name {
-    height: 80px;
-    font-size: 62px;
-  }
-  #city-info-weather {
-    height: 40px;
-    font-size: 35px;
-  }
+.city-default__name {
+
 }
-#cd-weather-icon {
-  width: 125px;
-  height: 125px;
-  margin-top: 35px;
+.city-default__city-name {
+  font-size: 43px;
 }
-#cd-temp {
-  height: 110px;
-  margin-top: 40px;
-  font-size: 100px;
-  color: #92deb5;
+.city-default__weather {
+  font-size: 26px;
 }
-#сd-weather-values {
-  height: 240px;
-  margin-top: 45px;
-  div{
-    height: 60px;
-    font-size: 40px;
-  }
+.city-default__temp {
+  display: flex;
 }
-.city-default{
-  height: 100%;
+.city-default__weather-icon img{
+  width: 100px;
 }
-.error{
-  margin-left: 10px;
-  color: #ff4848;
-  font-size: 25px;
-  font-weight: bold;
-  white-space: nowrap;
+.city-default__temperature {
+  font-size: 80px;
+  color: #C0E7E2;
+  margin-left: 20px;
 }

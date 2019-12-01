@@ -110,11 +110,7 @@ const App = (props) => {
     saveToLocalStorage(state);
   }, [state]);
 
-  return (
-    <div id={'app'}>
-      <MainPage />
-    </div>
-  );
+  return <MainPage/>;
 };
 
 const mapStateToProps = (state) => ({state});

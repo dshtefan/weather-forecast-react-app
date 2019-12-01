@@ -18,37 +18,21 @@ const CityListItem = ({ city, i, cityDelete }) => {
   }, [city]);
 
   return (
-    <div className="city-list-item">
-      {loading
-        ? <Spinner/>
-        : <div className="city-list-item">
-          <div id="tab-info">
-            <div id="tab-info-city">
-              <div id="tab-info-city-text">
-                {!city.error ? `${city.city} ${city.temp}°`: ''}
-              </div>
-            </div>
-            <div id="tab-info-icon">
-              <div id="tab-info-icon-svg">
-                {!city.error ? <img src={`https://dshtefan.github.io/weather-search-2/icons/${city.icon}.svg`} alt=""/> : ''}
-              </div>
-            </div>
-            <div id="tab-info-delete">
-              <div id="tab-info-delete-svg">
-                <img src={deleteIcon} alt="" onClick={deleteCity}/>
-              </div>
-            </div>
+    <div className="item">
+      {loading ?
+        <Spinner/> :
+        <div className="item-content">
+          <div className="item-header">
+            <div className="item-header-city">{city.city}</div>
+            <img className="del-icon" src={deleteIcon} alt="" onClick={deleteCity} />
           </div>
-          {city.error
-            ? <div className="error-message">{city.error}</div>
-            : <WeatherInfo
-                pressure={city.pressure}
-                humidity={city.humidity}
-                wind={city.wind}
-                lat={city.lat}
-                lon={city.lon}
-            />
-          }
+          <div className="item-body">
+            <div className="item-body-left">
+              <div className="item-temperature">{city.temp}°</div>
+              <img src={`https://dshtefan.github.io/weather-search-2/icons/${city.icon}.svg`} alt="" />
+            </div>
+            <WeatherInfo {...city} />
+          </div>
         </div>
       }
     </div>

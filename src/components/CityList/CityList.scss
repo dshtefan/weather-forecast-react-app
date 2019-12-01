@@ -1,17 +1,6 @@
-#city-list{
-  @media(min-width: 1250px){
-    grid-area: 1 / 3 / span 1/ span 2;
-  }
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
 .city-list {
-  width: 100%;
-  min-height: 722px;
+  grid-area: cl;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   flex-wrap: wrap;
+  align-content: flex-start;
 }

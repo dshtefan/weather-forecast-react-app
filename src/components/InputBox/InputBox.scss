@@ -1,35 +1,29 @@
-#input-box-main {
-  height: 85px;
-  width: 100%;
+.search {
+  grid-area: srch;
 }
-#input-box {
-  height: 45px;
-  width: 520px;
+.input-form {
+  height: 40px;
+  width: 350px;
   background: linear-gradient(0deg, #92deb5 0%, rgba(222, 146, 156, 0) 100%);
-  border: 1px black;
-}
-#input-form {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
 }
-#input-field {
+.input-field {
   height: 45px;
   background-color: transparent;
   border-color: transparent;
   flex-grow: 1;
-  font-size: 32px;
+  font-size: 22px;
   color: #243a4e;
 }
-*:focus
-{
+*:focus {
   outline: none;
 }
-#search-button {
-  width: 100px;
-  height: 45px;
+.search-button {
+  width: 70px;
+  height: 40px;
   background: rgba(0, 0, 0, 0.7);
-  border-color: transparent;
-  color: #FFF4F4;
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: 300;
+  cursor: pointer;
 }

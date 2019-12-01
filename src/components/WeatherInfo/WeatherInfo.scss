@@ -1,20 +1,11 @@
-#item-info{
-  width: 98%;
+.info-block {
+  height: 170px;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-#item-info-left{
-  width: 30%;
-  height: 100%;
-}
-#item-info-right{
-  width: 70%;
-  height: 100%;
-  .weather-info-line{
-    text-align: end;
-  }
-}
-.weather-info-line{
-  height: 60px;
-  font-size: 25px;
-  color: rgba($color: #FFF4F4, $alpha: 0.75);
+.item-info {
+  font-size: 24px;
+  font-weight: 300;
+  height: 40px;
 }
