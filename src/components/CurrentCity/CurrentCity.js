@@ -14,7 +14,7 @@ const CurrentCity = ({ city, loading }) => (
         </div>
         <div className="current-city__temp">
           <div className="current-city__weather-icon">
-            <img src={`https://dshtefan.github.io/weather-search-2/icons/${city.icon}.svg`} alt="" />
+            <img src={`https://dshtefan.github.io/weather-forecast-react-app/icons/${city.icon}.svg`} alt="" />
           </div>
           <div className="current-city__temperature">{city.temp}°</div>
         </div>

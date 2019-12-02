@@ -16,7 +16,7 @@ const FavoriteCity = ({ city, loading, deleteCity }) => {
           <div className="item-body">
             <div className="item-body-left">
               <div className="item-temperature">{city.temp}°</div>
-              <img src={`https://dshtefan.github.io/weather-search-2/icons/${city.icon}.svg`} alt="" />
+              <img src={`https://dshtefan.github.io/weather-forecast-react-app/icons/${city.icon}.svg`} alt="" />
             </div>
             <WeatherInfo {...city} />
           </div>
