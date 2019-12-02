@@ -1,6 +1,6 @@
 import React  from 'react';
 import './CurrentCity.scss';
-import { Spinner, WeatherInfo } from "../";
+import { Spinner, WeatherInfo, WeatherIcon } from "../";
 
 const CurrentCity = ({ city, loading }) => (
   loading ?
@@ -14,7 +14,7 @@ const CurrentCity = ({ city, loading }) => (
         </div>
         <div className="current-city__temp">
           <div className="current-city__weather-icon">
-            <img src={`https://dshtefan.github.io/weather-forecast-react-app/icons/${city.icon}.svg`} alt="" />
+            <WeatherIcon iconNumber={city.icon} />
           </div>
           <div className="current-city__temperature">{city.temp}°</div>
         </div>

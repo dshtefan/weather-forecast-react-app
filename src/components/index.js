@@ -6,3 +6,4 @@ export {default as IconBar} from './IconBar';
 export {default as Input} from './Input';
 export {default as Spinner} from './Spinner';
 export {default as WeatherInfo} from './WeatherInfo';
+export {default as WeatherIcon} from './WeatherIcon';

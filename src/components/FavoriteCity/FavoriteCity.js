@@ -1,7 +1,7 @@
 import React from 'react';
 import './FavoriteCity.scss';
 import deleteIcon from './svg/delete.svg';
-import { Spinner, WeatherInfo } from "../";
+import { Spinner, WeatherInfo, WeatherIcon } from "../";
 
 const FavoriteCity = ({ city, loading, deleteCity }) => {
   return (
@@ -16,7 +16,7 @@ const FavoriteCity = ({ city, loading, deleteCity }) => {
           <div className="item-body">
             <div className="item-body-left">
               <div className="item-temperature">{city.temp}°</div>
-              <img src={`https://dshtefan.github.io/weather-forecast-react-app/icons/${city.icon}.svg`} alt="" />
+              <WeatherIcon iconNumber={city.icon} />
             </div>
             <WeatherInfo {...city} />
           </div>
