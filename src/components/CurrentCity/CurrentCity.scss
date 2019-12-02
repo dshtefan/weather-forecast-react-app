@@ -18,6 +18,10 @@
 .current-city__temp {
   display: flex;
 }
+.current-city__temp div{
+  display: flex;
+  align-items: center;
+}
 .city-default__weather-icon img{
   width: 100px;
 }
