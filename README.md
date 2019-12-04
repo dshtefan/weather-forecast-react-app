@@ -6,6 +6,8 @@
 
 Чтобы посмотреть на приложение в действии, перейди по [этой ссылке](https://dshtefan.github.io/weather-forecast-react-app/).
 
+![screen](./screen.jpg)
+
 ## Используемый стек
 
 - React(with Hooks) + Redux
