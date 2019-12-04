@@ -10,6 +10,7 @@
 
 - React(with Hooks) + Redux
 - CSS Grid + Flexbox
+- SASS/SCSS
 - LocalStorage
 - Axios
 - OpenWeatherMap API
