@@ -1,8 +1,15 @@
-### THIS APP: https://dshtefan.github.io/weather-forecast-react-app/
+# weather-forecast-react-app
 
-```bash
-$ npm i
-```
-```bash
-$ npm run start
-```
+Поиск погоды по местоположению или названию населенного пункта.
+
+## Демо
+
+Чтобы посмотреть на приложение в действии, перейди по [этой ссылке](https://dshtefan.github.io/weather-forecast-react-app/).
+
+## Используемый стек
+
+- React(with Hooks) + Redux
+- CSS Grid + Flexbox
+- LocalStorage
+- Axios
+- OpenWeatherMap API
