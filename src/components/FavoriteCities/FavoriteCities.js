@@ -1,6 +1,6 @@
 import React from 'react';
 import './FavoriteCities.scss';
-import { FavoriteCityContainer } from "../../containers";
+import FavoriteCityContainer from "../../containers/FavoriteCityContainer";
 
 const FavoriteCities = ({ cities }) => {
   return (

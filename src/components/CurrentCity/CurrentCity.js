@@ -1,6 +1,8 @@
 import React  from 'react';
 import './CurrentCity.scss';
-import { Spinner, WeatherInfo, WeatherIcon } from "../";
+import WeatherIcon from "../WeatherIcon";
+import WeatherInfo from "../WeatherInfo";
+import Spinner from "../Spinner";
 
 const CurrentCity = ({ city, loading }) => (
   loading ?

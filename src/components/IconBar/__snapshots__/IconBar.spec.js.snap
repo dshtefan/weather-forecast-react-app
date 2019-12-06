@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CityListItem компонент без ошибки отображается корректно 1`] = `
+<div
+  className="icon-bar"
+>
+  <div
+    className="icons"
+  >
+    <img
+      alt=""
+      className="navIcon"
+      onClick={[Function]}
+      src="update.svg"
+    />
+  </div>
+</div>
+`;
+
+exports[`CityListItem ошибка отображается корректно 1`] = `
+<div
+  className="icon-bar"
+>
+  <div
+    className="icons"
+  >
+    <img
+      alt=""
+      className="navIcon"
+      onClick={[Function]}
+      src="update.svg"
+    />
+    <img
+      alt=""
+      className="errIcon"
+      src="err.svg"
+    />
+    <div
+      className="error-text"
+    >
+      error
+    </div>
+  </div>
+</div>
+`;
+
+exports[`IconBar компонент без ошибки отображается корректно 1`] = `
+<div
+  className="icon-bar"
+>
+  <div
+    className="icons"
+  >
+    <img
+      alt=""
+      className="navIcon"
+      onClick={[Function]}
+      src="update.svg"
+    />
+  </div>
+</div>
+`;
+
+exports[`IconBar ошибка отображается корректно 1`] = `
+<div
+  className="icon-bar"
+>
+  <div
+    className="icons"
+  >
+    <img
+      alt=""
+      className="navIcon"
+      onClick={[Function]}
+      src="update.svg"
+    />
+    <img
+      alt=""
+      className="errIcon"
+      src="err.svg"
+    />
+    <div
+      className="error-text"
+    >
+      error
+    </div>
+  </div>
+</div>
+`;

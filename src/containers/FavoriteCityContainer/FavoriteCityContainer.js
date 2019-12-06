@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { cityDelete } from "../../actions";
-import { FavoriteCity } from "../../components";
+import FavoriteCity from "../../components/FavoriteCity";
 
 const CityListItem = ({ city, i, cityDelete }) => {
   const [ loading, setLoading ] = useState(true);

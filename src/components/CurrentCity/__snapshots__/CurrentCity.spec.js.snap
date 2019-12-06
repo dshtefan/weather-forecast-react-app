@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CurrentCity загрузка отображается корректно 1`] = `<Spinner />`;
+
+exports[`CurrentCity отображение города отображается корректно 1`] = `
+<div
+  className="current-city"
+>
+  <div
+    className="current-city__name"
+  >
+    <div
+      className="current-city__city-name"
+    >
+      Moscow
+    </div>
+    <div
+      className="current-city__weather"
+    >
+      Rain
+    </div>
+  </div>
+  <div
+    className="current-city__temp"
+  >
+    <div
+      className="current-city__weather-icon"
+    >
+      <WeatherIcon
+        iconNumber="10"
+      />
+    </div>
+    <div
+      className="current-city__temperature"
+    >
+      2
+      °
+    </div>
+  </div>
+  <div
+    className="current-city__info"
+  >
+    <WeatherInfo
+      city="Moscow"
+      humidity="86"
+      icon="10"
+      lat="60"
+      lon="30"
+      main="Rain"
+      pressure="997"
+      temp="2"
+      wind="5"
+    />
+  </div>
+</div>
+`;
+
+exports[`CurrentCity ошибка при получении города отображается корректно 1`] = `
+<div>
+  cityError
+</div>
+`;

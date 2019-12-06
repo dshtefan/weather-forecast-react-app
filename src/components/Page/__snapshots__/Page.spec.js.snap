@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Page отображается корректно 1`] = `
+<div
+  className="page"
+>
+  <Connect(InputContainer) />
+  <Connect(IconBar) />
+  <Connect(FavoriteCities) />
+  <Connect(CurrentCity) />
+</div>
+`;

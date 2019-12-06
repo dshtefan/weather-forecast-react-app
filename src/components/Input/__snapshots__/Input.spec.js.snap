@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CityListItem пустая строка отображается корректно 1`] = `
+<div
+  className="search"
+>
+  <form
+    className="input-form"
+  >
+    <input
+      className="input-field"
+      onChange={[Function]}
+    />
+    <button
+      className="search-button"
+      onClick={[Function]}
+    >
+      Search
+    </button>
+  </form>
+</div>
+`;
+
+exports[`CityListItem строка с названием города отображается корректно 1`] = `
+<div
+  className="search"
+>
+  <form
+    className="input-form"
+  >
+    <input
+      className="input-field"
+      onChange={[Function]}
+      value="Moscow"
+    />
+    <button
+      className="search-button"
+      onClick={[Function]}
+    >
+      Search
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Input пустая строка отображается корректно 1`] = `
+<div
+  className="search"
+>
+  <form
+    className="input-form"
+  >
+    <input
+      className="input-field"
+      onChange={[Function]}
+    />
+    <button
+      className="search-button"
+      onClick={[Function]}
+    >
+      Search
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Input строка с названием города отображается корректно 1`] = `
+<div
+  className="search"
+>
+  <form
+    className="input-form"
+  >
+    <input
+      className="input-field"
+      onChange={[Function]}
+      value="Moscow"
+    />
+    <button
+      className="search-button"
+      onClick={[Function]}
+    >
+      Search
+    </button>
+  </form>
+</div>
+`;

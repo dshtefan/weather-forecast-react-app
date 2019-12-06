@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CityListItem дефолтный кейс отображается корректно 1`] = `""`;
+
+exports[`CityListItem иконки отображаются корректно 1`] = `
+<img
+  alt=""
+  src="01.svg"
+/>
+`;
+
+exports[`CityListItem иконки отображаются корректно 2`] = `
+<img
+  alt=""
+  src="02.svg"
+/>
+`;
+
+exports[`CityListItem иконки отображаются корректно 3`] = `
+<img
+  alt=""
+  src="03.svg"
+/>
+`;
+
+exports[`CityListItem иконки отображаются корректно 4`] = `
+<img
+  alt=""
+  src="04.svg"
+/>
+`;
+
+exports[`CityListItem иконки отображаются корректно 5`] = `
+<img
+  alt=""
+  src="09.svg"
+/>
+`;
+
+exports[`CityListItem иконки отображаются корректно 6`] = `
+<img
+  alt=""
+  src="10.svg"
+/>
+`;
+
+exports[`CityListItem иконки отображаются корректно 7`] = `
+<img
+  alt=""
+  src="11.svg"
+/>
+`;
+
+exports[`CityListItem иконки отображаются корректно 8`] = `
+<img
+  alt=""
+  src="13.svg"
+/>
+`;
+
+exports[`CityListItem иконки отображаются корректно 9`] = `
+<img
+  alt=""
+  src="50.svg"
+/>
+`;
+
+exports[`WeatherIcon дефолтный кейс отображается корректно 1`] = `""`;
+
+exports[`WeatherIcon иконки отображаются корректно 1`] = `
+<img
+  alt=""
+  src="01.svg"
+/>
+`;
+
+exports[`WeatherIcon иконки отображаются корректно 2`] = `
+<img
+  alt=""
+  src="02.svg"
+/>
+`;
+
+exports[`WeatherIcon иконки отображаются корректно 3`] = `
+<img
+  alt=""
+  src="03.svg"
+/>
+`;
+
+exports[`WeatherIcon иконки отображаются корректно 4`] = `
+<img
+  alt=""
+  src="04.svg"
+/>
+`;
+
+exports[`WeatherIcon иконки отображаются корректно 5`] = `
+<img
+  alt=""
+  src="09.svg"
+/>
+`;
+
+exports[`WeatherIcon иконки отображаются корректно 6`] = `
+<img
+  alt=""
+  src="10.svg"
+/>
+`;
+
+exports[`WeatherIcon иконки отображаются корректно 7`] = `
+<img
+  alt=""
+  src="11.svg"
+/>
+`;
+
+exports[`WeatherIcon иконки отображаются корректно 8`] = `
+<img
+  alt=""
+  src="13.svg"
+/>
+`;
+
+exports[`WeatherIcon иконки отображаются корректно 9`] = `
+<img
+  alt=""
+  src="50.svg"
+/>
+`;

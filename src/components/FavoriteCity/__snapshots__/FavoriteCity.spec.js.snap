@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CityListItem загрузка отображается корректно 1`] = `
+<div
+  className="item"
+>
+  <Spinner />
+</div>
+`;
+
+exports[`CityListItem информация о погоде в городе отображается корректно 1`] = `
+<div
+  className="item"
+>
+  <div
+    className="item-content"
+  >
+    <div
+      className="item-header"
+    >
+      <div
+        className="item-header-city"
+      >
+        Moscow
+      </div>
+      <img
+        alt=""
+        className="del-icon"
+        src="delete.svg"
+      />
+    </div>
+    <div
+      className="item-body"
+    >
+      <div
+        className="item-body-left"
+      >
+        <div
+          className="item-temperature"
+        >
+          2
+          °
+        </div>
+        <WeatherIcon
+          iconNumber="10"
+        />
+      </div>
+      <WeatherInfo
+        city="Moscow"
+        humidity="86"
+        icon="10"
+        lat="60"
+        lon="30"
+        main="Rain"
+        pressure="997"
+        temp="2"
+        wind="5"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`FavoriteCity загрузка отображается корректно 1`] = `
+<div
+  className="item"
+>
+  <Spinner />
+</div>
+`;
+
+exports[`FavoriteCity информация о погоде в городе отображается корректно 1`] = `
+<div
+  className="item"
+>
+  <div
+    className="item-content"
+  >
+    <div
+      className="item-header"
+    >
+      <div
+        className="item-header-city"
+      >
+        Moscow
+      </div>
+      <img
+        alt=""
+        className="del-icon"
+        src="delete.svg"
+      />
+    </div>
+    <div
+      className="item-body"
+    >
+      <div
+        className="item-body-left"
+      >
+        <div
+          className="item-temperature"
+        >
+          2
+          °
+        </div>
+        <WeatherIcon
+          iconNumber="10"
+        />
+      </div>
+      <WeatherInfo
+        city="Moscow"
+        humidity="86"
+        icon="10"
+        lat="60"
+        lon="30"
+        main="Rain"
+        pressure="997"
+        temp="2"
+        wind="5"
+      />
+    </div>
+  </div>
+</div>
+`;

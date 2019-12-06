@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WeatherInfo с неполучеными данными отображается корректно 1`] = `
+<div
+  className="info-block"
+>
+  <div
+    className="item-info"
+  >
+    Pressure: 
+     hPA
+  </div>
+  <div
+    className="item-info"
+  >
+    Wind: 
+     m/s
+  </div>
+  <div
+    className="item-info"
+  >
+    Humidity: 
+    %
+  </div>
+  <div
+    className="item-info"
+  >
+    Coord: [
+    , 
+    ]
+  </div>
+</div>
+`;
+
+exports[`WeatherInfo с получеными данными отображается корректно 1`] = `
+<div
+  className="info-block"
+>
+  <div
+    className="item-info"
+  >
+    Pressure: 
+    997
+     hPA
+  </div>
+  <div
+    className="item-info"
+  >
+    Wind: 
+    5
+     m/s
+  </div>
+  <div
+    className="item-info"
+  >
+    Humidity: 
+    86
+    %
+  </div>
+  <div
+    className="item-info"
+  >
+    Coord: [
+    60
+    , 
+    30
+    ]
+  </div>
+</div>
+`;

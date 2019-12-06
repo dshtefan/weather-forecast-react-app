@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addCityToQueue } from "../../actions";
-import { Input } from "../../components";
+import Input from "../../components/Input";
 
 const InputContainer = ({ addCityToQueue }) => {
   const [ inputValue, setInputValue ] = useState('');

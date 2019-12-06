@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spinner Компонент содержит необходимые классы отображается корректно 1`] = `
+<div
+  className="lds-css ng-scope"
+>
+  <div
+    className="lds-eclipse"
+  >
+    <div />
+  </div>
+</div>
+`;

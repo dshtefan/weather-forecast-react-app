@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { CurrentCity } from "../../components";
+import CurrentCity from "../../components/CurrentCity";
 
 const mapStateToProps = ({ loading, cityByCoords }) => ({
   city: cityByCoords,

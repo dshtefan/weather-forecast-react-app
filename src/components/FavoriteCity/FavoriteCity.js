@@ -1,7 +1,9 @@
 import React from 'react';
 import './FavoriteCity.scss';
 import deleteIcon from './svg/delete.svg';
-import { Spinner, WeatherInfo, WeatherIcon } from "../";
+import Spinner from "../Spinner";
+import WeatherIcon from "../WeatherIcon";
+import WeatherInfo from "../WeatherInfo";
 
 const FavoriteCity = ({ city, loading, deleteCity }) => {
   return (
