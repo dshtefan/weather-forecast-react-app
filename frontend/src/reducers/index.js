@@ -1,6 +1,7 @@
-import initialState from '../store/initialState'
+import storeTemplate from "../store/storeTemplate";
+import {deleteFavoriteCity} from "../utils/getWeather";
 
-const reducer = (state = initialState, action) => {
+const reducer = (state = storeTemplate, action) => {
   switch(action.type){
     case 'ADD_CITY_TO_QUEUE': {
       const citiesQueue = [...state.citiesQueue];
@@ -23,8 +24,9 @@ const reducer = (state = initialState, action) => {
         ...state,
         loading: action.loading
       };
-    case 'DELETE_CITY':{
+    case 'DELETE_CITY': {
       const cities = [...state.cities];
+      (async () => await deleteFavoriteCity(cities[action.index].id))();
       cities.splice(action.index, 1);
       return {
         ...state,

@@ -4,7 +4,8 @@ const dataDestructuring = weather => {
     main: { temp, humidity, pressure },
     weather: { 0: { main, icon } },
     wind: { speed },
-    coord
+    coord,
+    id
   } = weather;
 
   temp = (temp - 273.15).toFixed(0);
@@ -19,7 +20,8 @@ const dataDestructuring = weather => {
     humidity,
     wind: speed,
     lon: coord.lon,
-    lat: coord.lat
+    lat: coord.lat,
+    id
   }
 };
 

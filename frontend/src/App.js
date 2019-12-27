@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import * as utils from "./utils";
 import * as actions from './actions';
 import Page from './components/Page'
+import {addFavoriteCity} from "./utils/getWeather";
 
 const App = (props) => {
   const {deleteCityFromQueue, addErrorMessage, clearErrorMessage, cityError, cityLoaded,
-    cityRequest, locLoaded, locError, cityByCoordsLoaded, updateLoadingStatus, state} = props;
-  const { apiKey, cityDefault, isGeoPosAvailable, cityByCoords, citiesQueue } = state;
-  const { getWeatherByCityName, getWeatherByCoord, dataDestructuring, getGeoPosition, saveToLocalStorage } = utils;
+    cityRequest, locLoaded, locError, cityByCoordsLoaded, updateLoadingStatus, addCityToQueue, state} = props;
+  const { apiKey, cityDefault, isGeoPosAvailable, cityByCoords, citiesQueue, cities } = state;
+  const { getWeatherByCityName, getWeatherByCoord, dataDestructuring, getGeoPosition, saveToLocalStorage, getLocalState } = utils;
 
   const successGeoLocCallback = (pos) => {
     const lat = pos.coords.latitude;
@@ -34,13 +35,21 @@ const App = (props) => {
       });
   };
 
+  const isContain = (cityName) => cities.reduce((flag, {city}) => city === cityName ? true : flag || false, false);
+
   useEffect(() => {
     if(citiesQueue.length > 0){
       cityRequest();
       getWeatherByCityName(citiesQueue[0], apiKey)
-        .then((res) => {
-          cityLoaded(dataDestructuring(res.data));
-          clearErrorMessage();
+        .then(async (res) => {
+          if (!isContain(res.data.name)) {
+            res.data.id = (await addFavoriteCity(res.data.name)).data._id;
+            cityLoaded(dataDestructuring(res.data));
+            clearErrorMessage();
+          } else {
+            cityError();
+            addErrorMessage('city already exists');
+          }
         })
         .catch((err) => {
           cityError();
@@ -63,6 +72,14 @@ const App = (props) => {
   useEffect(() => {
     saveToLocalStorage(state);
   });
+
+  useEffect(() => {
+    getLocalState().then((citiesQueue) => {
+      if(citiesQueue)
+        citiesQueue.map((city) => addCityToQueue(city))
+    })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[]);
 
   return <Page/>;
 };
